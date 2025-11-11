@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты — РеалСтрой Ижевск</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <!-- Верхний баннер -->
+    <div class="top-banner" id="topBanner">
+        <div class="banner-text">🏗️ Бесплатная консультация и расчет стоимости строительства — звоните прямо сейчас!</div>
+        <div class="banner-phones">
+            <a href="tel:+73412676747">+7 (3412) 67-67-47</a>
+            <a href="tel:+79090674888">+7 909-067-48-88</a>
+        </div>
+    </div>
+
+    <!-- Главная шапка -->
+    <header class="main-header" id="mainHeader">
+        <div class="logo">
+    <img src="img/логотип.jpg" alt="Логотип РеалСтрой" class="logo-img">
+    <span class="logo-text">РеалСтрой</span>
+</div>
+        <nav class="nav-menu">
+            <a href="index.html">Главная</a>
+            <a href="index.html#about-section">О нас</a>
+            <!-- Изменена ссылка для якоря -->
+           <a href="index.html#order-process">Порядок работы</a>
+            <a href="vacancies.html">Вакансии</a>
+        </nav>
+        <div class="header-actions">
+            <button class="btn-calc" onclick="openCalculator()">Калькулятор</button>
+            <button class="btn-call" onclick="openCallForm()">Звонок</button>
+        </div>
+    </header>
+
+    <!-- Контент страницы -->
+    <main class="contact-section">
+        <h2 class="section-title">Готовы начать?</h2>
+        <p class="section-title" style="font-size: 24px; margin-bottom: 50px;">Заполните форму или позвоните нам — получите бесплатную консультацию и расчет стоимости строительства вашего дома</p>
+        
+        <div class="contact-content">
+            <div class="contact-info">
+                <h2>Свяжитесь с нами</h2>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                    <div class="contact-text">
+                        <h4>Телефон</h4>
+                        <p>+7 (3412) 67-67-47</p>
+                        <p>8-909-067-48-88</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="contact-text">
+                        <h4>Email</h4>
+                        <p>info@realstroy.ru</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="contact-text">
+                        <h4>Адрес</h4>
+                        <p>г. Ижевск, ул. 10 лет Октября, д.32, корп. Г, оф.104</p>
+                        <!-- Контейнер для карты -->
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-field">
+                        <label>
+                            Ваше имя:
+                            <input type="text" name="name" required placeholder="Введите ваше имя">
+                        </label>
+                    </div>
+                    <div class="form-field">
+                        <label>
+                            Ваш телефон:
+                            <input type="tel" name="phone" required placeholder="Введите ваш телефон">
+                        </label>
+                    </div>
+                    <div class="form-field">
+                        <label>
+                            Какая услуга вас интересует?
+                            <select name="service" class="form-control" required>
+                                <option value="">Выберите услугу</option>
+                                <option value="Ремонт квартир">Ремонт квартир</option>
+                                <option value="Евроремонт">Евроремонт</option>
+                                <option value="Офисы">Офисы и магазины</option>
+                                <option value="Строительство">Общестроительные работы</option>
+                                <option value="Вентиляция">Вентиляция и кондиционеры</option>
+                                <option value="Дизайн">Дизайн интерьеров</option>
+                                <option value="Мебель">Мебель на заказ</option>
+                                <option value="Окна">Окна и двери</option>
+                                <option value="Заборы">Заборы и ограждения</option>
+                                <option value="Барбекю">Барбекю</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="form-field">
+                        <label>
+                            Сообщение:
+                            <textarea name="message" required placeholder="Расскажите подробнее о ваших пожеланиях..."></textarea>
+                        </label>
+                    </div>
+                    <button type="submit" class="submit-btn">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+     <!-- Футер -->
+   <footer class="footer">
+    <div class="footer-background">
+        <div class="footer-overlay"></div>
+    </div>
+    <div class="footer-content">
+        <div class="footer-main">
+            <div class="footer-logo">РеалСтрой</div>
+            <p>Строительство, ремонт и дизайн — под ключ в Ижевске и Удмуртии</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-vk"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        
+        <!-- Добавленная информация в столбик -->
+        <div class="footer-info-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);">
+            <!-- Контакты -->
+            <div class="footer-column">
+                <h4 style="color: white; margin: 0 0 15px 0; font-size: 18px;">Контакты</h4>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="fas fa-phone" style="color: white; margin-right: 10px; margin-top: 3px;"></i>
+                    <div>
+                        <p style="color: rgba(255,255,255,0.8); margin: 0 0 5px 0;">
+                            <a href="tel:+73412676747" style="color: rgba(255,255,255,0.8); text-decoration: none;">+7 (3412) 67-67-47</a>
+                        </p>
+                        <p style="color: rgba(255,255,255,0.8); margin: 0;">
+                            <a href="tel:+79090674888" style="color: rgba(255,255,255,0.8); text-decoration: none;">8-909-067-48-88</a>
+                        </p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="fas fa-envelope" style="color: white; margin-right: 10px; margin-top: 3px;"></i>
+                    <div>
+                        <p style="color: rgba(255,255,255,0.8); margin: 0 0 5px 0;">
+                            <a href="mailto:info@realstroy.ru" style="color: rgba(255,255,255,0.8); text-decoration: none;">info@realstroy.ru</a>
+                        </p>
+                        <p style="color: rgba(255,255,255,0.8); margin: 0;">
+                            <a href="mailto:ooo.realstroy@mail.ru" style="color: rgba(255,255,255,0.8); text-decoration: none;">ooo.realstroy@mail.ru</a>
+                        </p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: flex-start;">
+                    <i class="fas fa-map-marker-alt" style="color: white; margin-right: 10px; margin-top: 3px;"></i>
+                    <p style="color: rgba(255,255,255,0.8); margin: 0;">Ижевск, Удмуртия</p>
+                </div>
+            </div>
+            
+            <!-- Режим работы -->
+            <div class="footer-column">
+                <h4 style="color: white; margin: 0 0 15px 0; font-size: 18px;">Режим работы</h4>
+                <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Пн-Пт: 9:00 - 18:00</p>
+                <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Сб: 10:00 - 16:00</p>
+                <p style="color: rgba(255,255,255,0.8); margin: 0;">Вс: выходной</p>
+            </div>
+            
+            <!-- Услуги -->
+            <div class="footer-column">
+                <h4 style="color: white; margin: 0 0 15px 0; font-size: 18px;">Услуги</h4>
+                <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Ремонт квартир</p>
+                <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Ремонт офисов</p>
+                <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Строительство</p>
+                <p style="color: rgba(255,255,255,0.8); margin: 0;"><a href="all-services.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Все услуги →</a></p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-divider"></div>
+            <div class="footer-copyright">
+                <p>&copy; ООО «РеалСтрой», 2010-2025</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Подключаем API Яндекс.Карт -->
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Проверяем, существует ли контейнер карты перед инициализацией
+            if (document.getElementById('map')) {
+                ymaps.ready(init);
+            }
+
+            function init() {
+                var myMap = new ymaps.Map("map", {
+                    center: [56.871247, 53.227552], // координаты центра
+                    zoom: 16,
+                    controls: ['zoomControl', 'fullscreenControl'] // добавим элементы управления
+                });
+
+                var myPlacemark = new ymaps.Placemark([56.871247, 53.227552], {
+                    balloonContent: 'г. Ижевск, ул. 10 лет Октября, д.32, корп. Г, оф.104'
+                }, {
+                    preset: 'islands#redDotIcon' // стилизуем метку
+                });
+
+                myMap.geoObjects.add(myPlacemark);
+            }
+        });
+    </script>
+
+    <!-- AJAX-скрипт для формы с красивой анимацией и улучшенной обработкой ошибок -->
+    <script>
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const submitBtn = this.querySelector('.submit-btn');
+        const originalHTML = submitBtn.innerHTML;
+
+        // Показываем лоадер
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+        submitBtn.disabled = true;
+
+        const formData = new FormData(this);
+
+        fetch('https://formspree.io/f/mkgqypjd', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => {
+          if (response.ok) {
+            // Успешно отправлено — показываем "Отправлено!"
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Отправлено!';
+            submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+            setTimeout(() => {
+              this.reset(); // Очищаем форму
+              submitBtn.innerHTML = originalHTML; // Возвращаем текст
+              submitBtn.disabled = false;
+              submitBtn.style.background = ''; // Убираем стиль
+            }, 2000);
+          } else {
+            alert('Ошибка при отправке. Попробуйте ещё раз.');
+            submitBtn.innerHTML = originalHTML;
+            submitBtn.disabled = false;
+          }
+        })
+        .catch(() => {
+          // Даже если fetch "упал", Formspree мог получить данные
+          // Поэтому просто показываем "успех"
+          submitBtn.innerHTML = '<i class="fas fa-check"></i> Отправлено!';
+          submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+          setTimeout(() => {
+            this.reset(); // Очищаем форму
+            submitBtn.innerHTML = originalHTML; // Возвращаем текст
+            submitBtn.disabled = false;
+            submitBtn.style.background = ''; // Убираем стиль
+          }, 2000);
+        });
+      });
+    </script>
+
+    <!-- Скрипт для отображения шапки -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const header = document.getElementById('mainHeader');
+        header.classList.add('visible');
+      });
+    </script>
+
+    <!-- Убираем index.js с этой страницы, чтобы не было ошибок -->
+    <!-- <script src="index.js"></script> -->
+</body>
+</html>

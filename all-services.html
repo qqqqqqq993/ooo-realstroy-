@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Все услуги — РеалСтрой</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css  ">
+    <style>
+        /* Стили для кнопок с картинками */
+        .service-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 12px;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .service-button {
+            display: block;
+            width: 100%;
+            text-align: left;
+            border: none;
+            background: white;
+            padding: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .service-image {
+            height: 180px;
+            background: linear-gradient(45deg, #64b5f6, #2196f3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-image-placeholder {
+            color: white;
+            font-size: 16px;
+            text-align: center;
+            padding: 15px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 25px;
+            font-weight: 500;
+        }
+        
+        .service-icon {
+            font-size: 48px;
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            margin: 0 0 10px 0;
+            font-size: 20px;
+        }
+        
+        .service-content h3 a {
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .service-content p {
+            margin: 0 0 15px 0;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        /* Разные цвета для каждой карточки */
+        .service-card:nth-child(1) .service-image { background: linear-gradient(45deg, #64b5f6, #2196f3); }
+        .service-card:nth-child(2) .service-image { background: linear-gradient(45deg, #9575cd, #673ab7); } /* Помощь комплектации */
+        .service-card:nth-child(3) .service-image { background: linear-gradient(45deg, #81c784, #4caf50); } /* Ремонт офисов */
+        .service-card:nth-child(4) .service-image { background: linear-gradient(45deg, #ffb74d, #ff9800); } /* Общестроительные работы */
+        .service-card:nth-child(5) .service-image { background: linear-gradient(45deg, #ba68c8, #9c27b0); }
+        .service-card:nth-child(6) .service-image { background: linear-gradient(45deg, #4db6ac, #009688); }
+        .service-card:nth-child(7) .service-image { background: linear-gradient(45deg, #ff8a65, #ff5722); }
+        
+        /* Декоративные элементы */
+        .service-image::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            top: -50%;
+            left: -50%;
+            transform: rotate(30deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Верхний баннер -->
+    <div class="top-banner" id="topBanner">
+        <div class="banner-text">🏗️ Бесплатная консультация и расчет стоимости строительства — звоните прямо сейчас!</div>
+        <div class="banner-phones">
+            <a href="tel:+73412676747">+7 (3412) 67-67-47</a>
+            <a href="tel:+79090674888">+7 909-067-48-88</a>
+        </div>
+    </div>
+
+    <!-- Главная шапка -->
+    <header class="main-header" id="mainHeader">
+        <div class="logo">РеалСтрой</div>
+        <nav class="nav-menu">
+            <a href="index.html">Главная</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">Виды услуг</a>
+                <div class="dropdown-content">
+                    <div class="dropdown-content-columns">
+                        <a href="repair-apartments.html">Ремонт квартир</a>
+                        <a href="commercial-repair.html">Ремонт офисов</a>
+                        <a href="construction.html">Общестроительные работы</a>
+                        <a href="all-services.html">Все услуги</a>
+                    </div>
+                </div>
+            </div>
+            <a href="order-process.html">Порядок работы</a>
+            <a href="about.html">О нас</a>
+            <a href="contact.html">Контакты</a>
+        </nav>
+        <div class="header-actions">
+            <button class="btn-calc" onclick="openCalculator()">Калькулятор</button>
+            <button class="btn-call" onclick="openCallForm()">Звонок</button>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="service-page">
+        <div class="hero-section" style="height: 400px; margin-top: 80px;">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Все наши <span class="text-blue-300">услуги</span></h1>
+                <p class="hero-subtitle">Полный спектр строительных и ремонтных работ под ключ</p>
+            </div>
+        </div>
+
+        <div class="content-section" style="padding: 80px 5%;">
+            <h2 class="section-title">Наши специализации</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <button class="service-button" onclick="window.location.href='repair-apartments.html'">
+                        <div class="service-image">
+                            <div class="service-image-placeholder">
+                                <i class="service-icon fas fa-home"></i>
+                                <div>Ремонт квартир</div>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3><a href="repair-apartments.html">Ремонт квартир</a></h3>
+                            <p>Косметический и капитальный ремонт жилых помещений с гарантией качества</p>
+                            <div class="service-features">
+                                <span class="feature-tag">Под ключ</span>
+                                <span class="feature-tag">Гарантия</span>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                
+                <!-- Помощь комплектации объекта (вторая карточка) -->
+                <div class="service-card">
+                    <button class="service-button" onclick="window.location.href='pomosh.html'">
+                        <div class="service-image">
+                            <div class="service-image-placeholder">
+                                <!-- Используем SVG напрямую, как иконку -->
+                                <svg class="service-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 3L2 12h3v8h6v-6h4v6h6v-8h3L12 3zm-2 16v-6h4v6H10z" fill="currentColor"/>
+                                </svg>
+                                <div>Помощь комплектации</div>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3><a href="pomosh.html">Помощь комплектации объекта</a></h3>
+                            <p>Плитка, двери, сантехника, электрика, свет, напольные и декоративные покрытия — подбираем всё по оптовым ценам под ваш проект.</p>
+                            <div class="service-features">
+                                <span class="feature-tag">Комплектация</span>
+                                <span class="feature-tag">Оптовые цены</span>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                
+                <!-- Ремонт офисов (третья карточка) -->
+                <div class="service-card">
+                    <button class="service-button" onclick="window.location.href='commercial-repair.html'">
+                        <div class="service-image">
+                            <div class="service-image-placeholder">
+                                <i class="service-icon fas fa-building"></i>
+                                <div>Ремонт офисов</div>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3><a href="commercial-repair.html">Ремонт офисов</a></h3>
+                            <p>Отделка коммерческих помещений без простоя бизнеса</p>
+                            <div class="service-features">
+                                <span class="feature-tag">Быстро</span>
+                                <span class="feature-tag">Профессионально</span>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                
+                <!-- Общестроительные работы (четвертая карточка, была третья) -->
+                <div class="service-card">
+                    <button class="service-button" onclick="window.location.href='construction.html'">
+                        <div class="service-image">
+                            <div class="service-image-placeholder">
+                                <i class="service-icon fas fa-hard-hat"></i>
+                                <div>Общестроительные работы</div>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3><a href="construction.html">Общестроительные работы</a></h3>
+                            <p>Полный комплекс строительных работ от фундамента до кровли</p>
+                            <div class="service-features">
+                                <span class="feature-tag">Комплексно</span>
+                                <span class="feature-tag">Надежно</span>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                
+                <div class="service-card">
+                    <button class="service-button" onclick="window.location.href='ventilation.html'">
+                        <div class="service-image">
+                            <div class="service-image-placeholder">
+                                <i class="service-icon fas fa-wind"></i>
+                                <div>Вентиляция и кондиционеры</div>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3><a href="ventilation.html">Вентиляция и кондиционеры</a></h3>
+                            <p>Проектирование, установка и обслуживание систем вентиляции</p>
+                            <div class="service-features">
+                                <span class="feature-tag">Проектирование</span>
+                                <span class="feature-tag">Сервис</span>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                
+                <div class="service-card">
+                    <button class="service-button" onclick="window.location.href='design.html'">
+                        <div class="service-image">
+                            <div class="service-image-placeholder">
+                                <i class="service-icon fas fa-paint-brush"></i>
+                                <div>Дизайн интерьеров</div>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3><a href="design.html">Дизайн интерьеров</a></h3>
+                            <p>Профессиональное проектирование жилых и офисных пространств</p>
+                            <div class="service-features">
+                                <span class="feature-tag">Индивидуально</span>
+                                <span class="feature-tag">Стильно</span>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                
+                <div class="service-card">
+                    <button class="service-button" onclick="window.location.href='windows.html'">
+                        <div class="service-image">
+                            <div class="service-image-placeholder">
+                                <i class="service-icon fas fa-window-maximize"></i>
+                                <div>Окна и двери</div>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3><a href="windows.html">Окна и двери</a></h3>
+                            <p>Производство и установка окон, дверей, остекление</p>
+                            <div class="service-features">
+                                <span class="feature-tag">Качество</span>
+                                <span class="feature-tag">Быстро</span>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                
+                <div class="service-card">
+                    <button class="service-button" onclick="window.location.href='fences.html'">
+                        <div class="service-image">
+                            <div class="service-image-placeholder">
+                                <i class="service-icon fas fa-border-all"></i>
+                                <div>Заборы и ограждения</div>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3><a href="fences.html">Заборы и ограждения</a></h3>
+                            <p>Установка заборов, ворот, ограждений любой сложности</p>
+                            <div class="service-features">
+                                <span class="feature-tag">Надежно</span>
+                                <span class="feature-tag">Долговечно</span>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                
+            </div>
+
+            <div class="cta-section" style="text-align: center; margin-top: 60px; padding: 40px; background: linear-gradient(135deg, #e3f2fd, #bbdefb); border-radius: 20px;">
+                <h3 style="font-size: 28px; margin-bottom: 20px; color: #333;">Готовы начать проект?</h3>
+                <p style="font-size: 18px; margin-bottom: 30px; color: #666;">Свяжитесь с нами для бесплатной консультации</p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <button class="btn btn-primary" onclick="openCallForm()">
+                        <i class="fas fa-phone"></i> Заказать звонок
+                    </button>
+                    <button class="btn btn-secondary" onclick="openCalculator()">
+                        <i class="fas fa-calculator"></i> Рассчитать стоимость
+                    </button>
+                </div>
+            </div>
+
+            <div class="back-btn" style="margin-top: 50px; text-align: center;">
+                <a href="index.html" class="btn btn-outline">
+                    <i class="fas fa-arrow-left"></i> Назад на главную
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Футер -->
+   <footer class="footer">
+    <div class="footer-background">
+        <div class="footer-overlay"></div>
+    </div>
+    <div class="footer-content">
+        <div class="footer-main">
+            <div class="footer-logo">РеалСтрой</div>
+            <p>Строительство, ремонт и дизайн — под ключ в Ижевске и Удмуртии</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-vk"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        
+        <!-- Добавленная информация в столбик -->
+        <div class="footer-info-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);">
+            <!-- Контакты -->
+            <div class="footer-column">
+                <h4 style="color: white; margin: 0 0 15px 0; font-size: 18px;">Контакты</h4>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="fas fa-phone" style="color: white; margin-right: 10px; margin-top: 3px;"></i>
+                    <div>
+                        <p style="color: rgba(255,255,255,0.8); margin: 0 0 5px 0;">
+                            <a href="tel:+73412676747" style="color: rgba(255,255,255,0.8); text-decoration: none;">+7 (3412) 67-67-47</a>
+                        </p>
+                        <p style="color: rgba(255,255,255,0.8); margin: 0;">
+                            <a href="tel:+79090674888" style="color: rgba(255,255,255,0.8); text-decoration: none;">8-909-067-48-88</a>
+                        </p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="fas fa-envelope" style="color: white; margin-right: 10px; margin-top: 3px;"></i>
+                    <div>
+                        <p style="color: rgba(255,255,255,0.8); margin: 0 0 5px 0;">
+                            <a href="mailto:info@realstroy.ru" style="color: rgba(255,255,255,0.8); text-decoration: none;">info@realstroy.ru</a>
+                        </p>
+                        <p style="color: rgba(255,255,255,0.8); margin: 0;">
+                            <a href="mailto:ooo.realstroy@mail.ru" style="color: rgba(255,255,255,0.8); text-decoration: none;">ooo.realstroy@mail.ru</a>
+                        </p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: flex-start;">
+                    <i class="fas fa-map-marker-alt" style="color: white; margin-right: 10px; margin-top: 3px;"></i>
+                    <p style="color: rgba(255,255,255,0.8); margin: 0;">Ижевск, Удмуртия</p>
+                </div>
+            </div>
+            
+            <!-- Режим работы -->
+            <div class="footer-column">
+                <h4 style="color: white; margin: 0 0 15px 0; font-size: 18px;">Режим работы</h4>
+                <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Пн-Пт: 9:00 - 18:00</p>
+                <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Сб: 10:00 - 16:00</p>
+                <p style="color: rgba(255,255,255,0.8); margin: 0;">Вс: выходной</p>
+            </div>
+            
+            <!-- Услуги -->
+            <div class="footer-column">
+                <h4 style="color: white; margin: 0 0 15px 0; font-size: 18px;">Услуги</h4>
+                <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Ремонт квартир</p>
+                <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Ремонт офисов</p>
+                <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Строительство</p>
+                <p style="color: rgba(255,255,255,0.8); margin: 0;"><a href="all-services.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Все услуги →</a></p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-divider"></div>
+            <div class="footer-copyright">
+                <p>&copy; ООО «РеалСтрой», 2010-2025</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

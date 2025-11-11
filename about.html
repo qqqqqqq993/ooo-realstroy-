@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас — РеалСтрой Ижевск</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <!-- Верхний баннер -->
+    <div class="top-banner" id="topBanner">
+        <div class="banner-text">🏗️ Бесплатная консультация и расчет стоимости строительства — звоните прямо сейчас!</div>
+        <div class="banner-phones">
+            <a href="tel:+73412676747">+7 (3412) 67-67-47</a>
+            <a href="tel:+79090674888">+7 909-067-48-88</a>
+        </div>
+    </div>
+
+    <!-- Шапка -->
+    <header class="main-header" id="mainHeader">
+        <div class="logo">РеалСтрой</div>
+        <nav class="nav-menu">
+            <a href="index.html">Главная</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">Виды услуг</a>
+                <div class="dropdown-content">
+                    <div class="dropdown-content-columns">
+                        <a href="repair-apartments.html">Ремонт квартир</a>
+                        <a href="commercial-repair.html">Ремонт торгово-офисных помещений</a>
+                        <a href="construction.html">Общестроительные работы</a>
+                        <a href="ventilation.html">Вентиляция и кондиционеры</a>
+                        <a href="design.html">Дизайн интерьеров</a>
+                        <a href="windows.html">Производство окон и дверей</a>
+                        <a href="fences.html">Заборы и ограждения</a>
+                    </div>
+                </div>
+            </div>
+            <a href="order-process.html">Порядок работы</a>
+            <a href="about.html">О нас</a>
+            <a href="contact.html">Контакты</a>
+        </nav>
+        <div class="header-actions">
+            <button class="btn-calc" onclick="openCalculator()">Калькулятор</button>
+            <button class="btn-call" onclick="openCallForm()">Звонок</button>
+        </div>
+    </header>
+
+    <!-- Контент страницы -->
+    <main class="about-section">
+        <h2 class="section-title">Почему выбирают нас?</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Строим и ремонтируем качественно, используя только проверенные материалы. Создаём уютные дома и офисы, которые становятся вашим вторым домом.</p>
+                <p>Наш подход — это сочетание профессионализма и заботы о клиенте. Мы знаем, как важно создать пространство, где будет комфортно жить и работать.</p>
+                <p>Каждый проект для нас особенный, ведь мы строим не просто здания — мы создаём пространство, где будут происходить важные моменты вашей жизни.</p>
+                <p>Доверьте строительство профессионалам — свяжитесь с нами!</p>
+                <p>Мы понимаем, что ваш дом — это не просто стены и крыша, а место, где будут жить ваши дети, гостить друзья и вы будете отдыхать после тяжелого дня. Поэтому мы уделяем внимание каждой детали, чтобы ваш дом был не только красивым, но и комфортным, безопасным и долговечным.</p>
+            </div>
+            <div class="about-image">
+                <div class="placeholder">Фото: Наша бригада на объекте</div>
+            </div>
+        </div>
+        
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">n+</div>
+                <div class="stat-label">Построенных домов</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">n+</div>
+                <div class="stat-label">Лет опыта</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">n%</div>
+                <div class="stat-label">Удовлетворенность</div>
+            </div>
+        </div>
+        
+        <!-- 6 причин выбрать нас -->
+        <section class="content-section">
+            <div class="blocks-container">
+                <div class="content-block">
+                    <div class="block-icon"><i class="fas fa-gift"></i></div>
+                    <h3 class="block-title">Постоянные акции, ценные подарки</h3>
+                    <p class="block-text">Мы дарим бонусы за каждый заказ — от бесплатного выезда до скидок на следующие работы.</p>
+                </div>
+                <div class="content-block">
+                    <div class="block-icon"><i class="fas fa-clock"></i></div>
+                    <h3 class="block-title">100% гарантия выполнения работ в срок</h3>
+                    <p class="block-text">Нарушаем сроки? Мы платим вам штраф. Мы ценим ваше время больше, чем деньги.</p>
+                </div>
+                <div class="content-block">
+                    <div class="block-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="block-title">Соблюдение требований ГОСТ и СНиП</h3>
+                    <p class="block-text">Все работы выполняем строго по нормам — безопасно, надежно, без скрытых дефектов.</p>
+                </div>
+                <div class="content-block">
+                    <div class="block-icon"><i class="fas fa-user-tie"></i></div>
+                    <h3 class="block-title">Стаж мастеров свыше 10 лет</h3>
+                    <p class="block-text">Наши мастера работают с инструментом в руках больше 10 лет — опыт не купить.</p>
+                </div>
+                <div class="content-block">
+                    <div class="block-icon"><i class="fas fa-file-contract"></i></div>
+                    <h3 class="block-title">Заключение официального договора</h3>
+                    <p class="block-text">Договор, смета, акты — всё оформляем правильно. Без обмана, без скрытых платежей.</p>
+                </div>
+                <div class="content-block">
+                    <div class="block-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                    <h3 class="block-title">Бесплатная оценка сроков, сметы и работ</h3>
+                    <p class="block-text">Приезжаем бесплатно — замеряем, анализируем, даём точную смету — без обязательств.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+     <!-- Футер -->
+   <footer class="footer">
+    <div class="footer-background">
+        <div class="footer-overlay"></div>
+    </div>
+    <div class="footer-content">
+        <div class="footer-main">
+            <div class="footer-logo">РеалСтрой</div>
+            <p>Строительство, ремонт и дизайн — под ключ в Ижевске и Удмуртии</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-vk"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        
+        <!-- Добавленная информация в столбик -->
+        <div class="footer-info-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);">
+            <!-- Контакты -->
+            <div class="footer-column">
+                <h4 style="color: white; margin: 0 0 15px 0; font-size: 18px;">Контакты</h4>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="fas fa-phone" style="color: white; margin-right: 10px; margin-top: 3px;"></i>
+                    <div>
+                        <p style="color: rgba(255,255,255,0.8); margin: 0 0 5px 0;">
+                            <a href="tel:+73412676747" style="color: rgba(255,255,255,0.8); text-decoration: none;">+7 (3412) 67-67-47</a>
+                        </p>
+                        <p style="color: rgba(255,255,255,0.8); margin: 0;">
+                            <a href="tel:+79090674888" style="color: rgba(255,255,255,0.8); text-decoration: none;">8-909-067-48-88</a>
+                        </p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="fas fa-envelope" style="color: white; margin-right: 10px; margin-top: 3px;"></i>
+                    <div>
+                        <p style="color: rgba(255,255,255,0.8); margin: 0 0 5px 0;">
+                            <a href="mailto:info@realstroy.ru" style="color: rgba(255,255,255,0.8); text-decoration: none;">info@realstroy.ru</a>
+                        </p>
+                        <p style="color: rgba(255,255,255,0.8); margin: 0;">
+                            <a href="mailto:ooo.realstroy@mail.ru" style="color: rgba(255,255,255,0.8); text-decoration: none;">ooo.realstroy@mail.ru</a>
+                        </p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: flex-start;">
+                    <i class="fas fa-map-marker-alt" style="color: white; margin-right: 10px; margin-top: 3px;"></i>
+                    <p style="color: rgba(255,255,255,0.8); margin: 0;">Ижевск, Удмуртия</p>
+                </div>
+            </div>
+            
+            <!-- Режим работы -->
+            <div class="footer-column">
+                <h4 style="color: white; margin: 0 0 15px 0; font-size: 18px;">Режим работы</h4>
+                <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Пн-Пт: 9:00 - 18:00</p>
+                <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Сб: 10:00 - 16:00</p>
+                <p style="color: rgba(255,255,255,0.8); margin: 0;">Вс: выходной</p>
+            </div>
+            
+            <!-- Услуги -->
+            <div class="footer-column">
+                <h4 style="color: white; margin: 0 0 15px 0; font-size: 18px;">Услуги</h4>
+                <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Ремонт квартир</p>
+                <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Ремонт офисов</p>
+                <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Строительство</p>
+                <p style="color: rgba(255,255,255,0.8); margin: 0;"><a href="all-services.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Все услуги →</a></p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-divider"></div>
+            <div class="footer-copyright">
+                <p>&copy; ООО «РеалСтрой», 2010-2025</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,3080 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Верхний баннер */
+.top-banner {
+    height: 60px;
+    background-color: #f1f3f4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Распределяем текст по центру, телефоны — справа */
+    width: 100%;
+    border-bottom: 1px solid #e9ecef;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    padding: 0 5%; /* Отступы по бокам */
+    box-sizing: border-box;
+}
+
+.banner-text {
+    text-align: center;
+    flex: 1; /* Занимает всё пространство между телефонами */
+    margin: 0 20px;
+}
+
+.banner-phones {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: flex-end;
+    font-weight: 600;
+    color: #007bff;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.banner-phones a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+}
+
+.banner-phones a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+@media (max-width: 768px) {
+    .top-banner {
+        flex-direction: column;
+        height: auto;
+        padding: 8px 3%;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .banner-text {
+        text-align: center;
+        margin: 0;
+        font-size: 13px;
+    }
+
+    .banner-phones {
+        flex-direction: row;
+        gap: 12px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 4px;
+    }
+
+    .banner-phones a {
+        font-size: 12px;
+    }
+}
+
+/* Главная шапка */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    justify-content: space-between;
+    z-index: 1000;
+    transform: translateY(-100%);
+    opacity: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.main-header.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo span {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.nav-menu a:hover {
+    color: #007bff;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #007bff;
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+/* Стили для выпадающего меню */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    padding: 10px 0;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    color: #007bff;
+}
+
+.header-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-calc,
+.btn-call {
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-calc {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.btn-calc:hover {
+    background: linear-gradient(135deg, #0056b3, #003d82);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+}
+
+.btn-call {
+    background-color: transparent;
+    color: #007bff;
+    border: 2px solid #007bff;
+}
+
+.btn-call:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Главный контейнер SPA */
+.spa-container {
+    min-height: 100vh;
+    margin-top: 80px;
+    padding-bottom: 100px;
+}
+
+.page {
+    display: none;
+    padding: 0 5%;
+}
+
+.page.active {
+    display: block;
+}
+
+/* Hero секция */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    background-image: url('RealSt.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    overflow: hidden;
+    border-radius: 80px 80px 80px 80px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+    color: white;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s forwards 0.3s;
+}
+
+.hero-subtitle {
+    font-size: 24px;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s forwards 0.6s;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s forwards 0.9s;
+}
+
+.btn {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0056b3, #003d82);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+    color: white;
+    font-size: 24px;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* Стандартные разделы */
+.content-section,
+.portfolio-section,
+.order-process,
+.about-section {
+    padding: 100px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #333;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    border-radius: 2px;
+}
+
+.blocks-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.content-block {
+    background-color: white;
+    padding: 50px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.content-block.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content-block:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.content-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.content-block:hover::before {
+    transform: scaleX(1);
+}
+
+.block-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    color: #007bff;
+    font-size: 28px;
+    transition: transform 0.3s;
+}
+
+.content-block:hover .block-icon {
+    transform: scale(1.1);
+}
+
+.block-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.block-text {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.portfolio-section {
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 0.8s forwards 0.5s;
+}
+
+.portfolio-item {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 300px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.5s;
+}
+
+.portfolio-item img,
+.portfolio-item .placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s;
+}
+
+.portfolio-item:hover img,
+.portfolio-item:hover .placeholder {
+    transform: scale(1.1);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    padding: 30px;
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.5s;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    transform: translateY(0);
+}
+
+.portfolio-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.portfolio-category {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee;
+    color: #999;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.about-section {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    margin-top: 60px;
+    max-width: 1200px;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+}
+
+.about-text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about-text p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 60px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.stat-item.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stat-number {
+    font-size: 48px;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Порядок работы */
+.order-process-section {
+    padding: 100px 5%;
+    background-color: white;
+    position: relative;
+}
+
+.order-process-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.order-process-section .section-title {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.order-process-section .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    border-radius: 2px;
+}
+
+.process-content {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-top: 50px;
+}
+
+.process-step {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    padding: 40px;
+    border-radius: 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.6s ease;
+}
+
+.process-step.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.process-step:hover {
+    transform: translateX(0) translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.step-number {
+    min-width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h3 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.step-content h4 {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 30px 0 15px;
+    color: #333;
+}
+
+.step-content p {
+    margin: 15px 0;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+}
+
+.step-content strong {
+    color: #007bff;
+    font-weight: 600;
+}
+
+.tech-steps {
+    padding-left: 25px;
+    margin: 20px 0;
+}
+
+.tech-steps li {
+    margin: 12px 0;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.important-note {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 30px 0;
+    border-left: 5px solid #007bff;
+    animation: pulse 3s infinite;
+}
+
+.important-note p {
+    font-weight: 600;
+    color: #007bff;
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Страница услуги */
+.service-page {
+    padding: 100px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.service-content {
+    text-align: left;
+    margin: 40px auto;
+    line-height: 1.8;
+}
+
+.service-content h2 {
+    color: #333;
+    margin: 40px 0 20px;
+    font-size: 32px;
+}
+
+.service-content h3 {
+    color: #333;
+    margin: 30px 0 15px;
+    font-size: 28px;
+}
+
+.service-content p {
+    margin: 15px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Таблица цен */
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 40px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.price-table th,
+.price-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.price-table th {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.price-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.price-table tr:hover {
+    background-color: #e3f2fd;
+}
+
+.back-btn {
+    text-align: center;
+    margin-top: 60px;
+}
+
+/* Контакты */
+.contact-section {
+    padding: 100px 5%;
+    background-color: white;
+    color: #333;
+    text-align: center;
+}
+
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+}
+
+.contact-info h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #e3f2fd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 20px;
+    color: #007bff;
+    flex-shrink: 0;
+}
+
+.contact-text h4 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+}
+
+.contact-text p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin: 5px 0;
+}
+
+.contact-text a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-text a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.form-field {
+    margin-bottom: 20px;
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 15px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder,
+.form-field select::placeholder {
+    color: #999;
+}
+
+.form-field textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 16px 40px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003d82);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .contact-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .contact-info h2 {
+        font-size: 28px;
+    }
+    
+    .contact-item {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .contact-form {
+        padding: 20px;
+    }
+}
+/* Калькулятор */
+.calculator-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.calculator-content {
+    background-color: white;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    position: relative;
+    animation: modalFadeIn 0.5s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.calculator-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+}
+
+.calculator-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+}
+
+.close-calculator {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s;
+}
+
+.close-calculator:hover {
+    color: #333;
+}
+
+.calculator-form {
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-control {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.option-item {
+    padding: 15px;
+    border: 2px solid #eee;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.option-item.selected {
+    border-color: #007bff;
+    background-color: #f0f7ff;
+    color: #007bff;
+    font-weight: 600;
+    transform: scale(1.05);
+}
+
+.checkbox-group {
+    margin-top: 15px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    cursor: pointer;
+    padding: 12px;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    transition: all 0.3s;
+}
+
+.checkbox-item:hover {
+    border-color: #007bff;
+    background-color: #f8f9ff;
+}
+
+.checkbox-item input[type="checkbox"] {
+    margin-right: 12px;
+    accent-color: #007bff;
+    width: 18px;
+    height: 18px;
+}
+
+.result-box {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    margin: 30px 0;
+    border-left: 5px solid #007bff;
+}
+
+.result-price {
+    font-size: 36px;
+    font-weight: bold;
+    color: #007bff;
+    margin: 10px 0;
+}
+
+.result-note {
+    color: #666;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.calculator-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.btn-large {
+    padding: 16px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-blue {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.btn-blue:hover {
+    background: linear-gradient(135deg, #0056b3, #003d82);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #007bff;
+    border: 2px solid #007bff;
+}
+
+.btn-outline:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Модальное окно формы звонка */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 3000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    position: relative;
+    animation: modalFadeIn 0.5s ease-out;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border-radius: 30px 30px 0 0;
+}
+
+.modal-header h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.close {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: #ffd700;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+    font-size: 16px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e1e8ed;
+    border-radius: 15px;
+    font-size: 16px;
+    transition: all 0.3s;
+    background-color: #f8f9fa;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #999;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-submitted {
+    text-align: center;
+    padding: 20px;
+    background: #d1fae5;
+    border-radius: 12px;
+    animation: fadeInUp 0.6s ease;
+    margin: 20px 0;
+}
+
+.form-submitted i {
+    font-size: 2rem;
+    color: #059669;
+}
+
+/* Футер */
+footer {
+    background-color: #16213e;
+    color: white;
+    text-align: center;
+    padding: 30px 5%;
+    font-size: 14px;
+    margin-top: 100px;
+    position: relative;
+}
+
+.footer-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.footer-logo span {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.social-icon {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #007bff;
+}
+
+.footer-guarantee {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Футер с фоновой картинкой */
+.footer {
+    position: relative;
+    width: 100%;
+    margin-top: 100px;
+    min-height: 300px;
+}
+
+.footer-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('footer.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.footer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(22, 33, 62, 0.7);
+}
+
+.footer-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px 5%;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer-main {
+    padding: 50px 0;
+}
+
+.footer-main p {
+    margin-bottom: 30px;
+    color: #eee;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255,255,255,0.2);
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+.social-icon:hover {
+    color: #007bff;
+    background-color: rgba(255,255,255,0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+}
+
+.footer-bottom {
+    padding: 30px 0;
+}
+
+.footer-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #007bff, transparent);
+    margin-bottom: 20px;
+}
+
+.footer-copyright {
+    padding: 20px 0;
+}
+
+.footer-copyright p {
+    color: #ddd;
+    font-size: 14px;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Плавный скролл */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Стили для страницы Ремонт офисов */
+#office-repair {
+    display: none;
+}
+
+#office-repair.active {
+    display: block;
+}
+
+/* Дополнительные стили для улучшения UX */
+.content-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.portfolio-item:hover {
+    transform: scale(1.03);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.submit-btn:hover {
+    transform: translateY(-3px);
+}
+
+/* Стили для placeholder-ов */
+.placeholder {
+    background-color: #f0f0f0;
+    color: #888;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Стили для галереи */
+.gallery-placeholder {
+    margin: 40px 0;
+}
+
+/* Стили для выпадающего меню - две колонки */
+.dropdown-content-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .dropdown-content-columns {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* НОВЫЕ КОМПОНЕНТЫ */
+/* FLOATING CTA */
+.floating-cta {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+}
+
+.floating-cta button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+    animation: pulse 2s infinite;
+    cursor: pointer;
+    font-size: 14px;
+}
+ 
+/* SCROLL PROGRESS BAR 
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    z-index: 9999;
+    width: 0%;
+    transition: width 0.2s;
+}*/
+
+/* BACK TO TOP */
+.back-to-top {
+    position: fixed;
+    bottom: 100px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    background: rgba(0, 123, 255, 0.9);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background: #0056b3;
+    transform: translateY(-3px);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .top-banner { height: 50px; font-size: 13px; }
+    .main-header { height: 70px; padding: 0 3%; }
+    .logo { font-size: 20px; }
+    .nav-menu { gap: 15px; }
+    .hero-title { font-size: 36px; }
+    .hero-subtitle { font-size: 20px; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+    .content-section, .portfolio-section, .about-section, .contact-section, .order-process { padding: 80px 3%; }
+    .section-title { font-size: 30px; }
+    .blocks-container { gap: 25px; }
+    .content-block { padding: 40px 20px; }
+    .block-icon { width: 60px; height: 60px; font-size: 24px; }
+    .block-title { font-size: 22px; }
+    .about-content { flex-direction: column; text-align: center; }
+    .about-image { margin-top: 40px; }
+    .stat-item { margin-bottom: 20px; }
+    .stat-number { font-size: 40px; }
+    .process-step { flex-direction: column; gap: 20px; padding: 30px 20px; }
+    .step-number { align-self: center; }
+    .step-content h3 { font-size: 24px; text-align: center; }
+    .step-content h4 { font-size: 20px; }
+    .tech-steps { padding-left: 20px; }
+    .tech-steps li { font-size: 15px; }
+    .important-note { padding: 20px; }
+    .important-note p { font-size: 15px; }
+    .calculator-content { border-radius: 20px; }
+    .calculator-header { padding: 20px; }
+    .calculator-title { font-size: 24px; }
+    .calculator-form { padding: 20px; }
+    .form-label { font-size: 16px; }
+    .options-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+    .option-item { padding: 12px; font-size: 13px; }
+    .checkbox-item { padding: 10px; font-size: 13px; }
+    .result-price { font-size: 28px; }
+    .btn-large { padding: 14px 25px; font-size: 16px; }
+    .contact-content { flex-direction: column; }
+    .contact-info, .contact-form { width: 100%; text-align: center; }
+    .contact-info h2, .contact-form h2 { text-align: center; }
+    .contact-item { justify-content: center; margin-bottom: 15px; }
+    .contact-icon { margin-right: 10px; }
+    .submit-btn { padding: 14px 30px; font-size: 16px; }
+    .price-table { font-size: 14px; }
+    .footer-logo { font-size: 20px; }
+    .social-icons { gap: 15px; }
+    .social-icon { font-size: 18px; width: 40px; height: 40px; }
+    .modal-content { border-radius: 20px; margin: 10px; }
+    .modal-header { padding: 20px; border-radius: 20px 20px 0 0; }
+    .modal-header h2 { font-size: 20px; }
+    .modal-body { padding: 20px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { font-size: 14px; }
+    .form-group input, .form-group textarea { padding: 12px; font-size: 14px; }
+    .form-group textarea { min-height: 100px; }
+    .submit-btn { padding: 14px; font-size: 16px; }
+    .floating-cta button { padding: 12px 16px; font-size: 12px; }
+    .back-to-top { bottom: 80px; width: 40px; height: 40px; font-size: 18px; }
+}
+
+@media (max-width: 480px) {
+    .hero-title { font-size: 28px; }
+    .hero-subtitle { font-size: 18px; }
+    .section-title { font-size: 26px; }
+    .blocks-container { gap: 20px; }
+    .content-block { padding: 30px 15px; }
+    .block-icon { width: 50px; height: 50px; font-size: 20px; }
+    .block-title { font-size: 20px; }
+    .stat-number { font-size: 36px; }
+    .stat-label { font-size: 14px; }
+    .calculator-content { border-radius: 15px; }
+    .calculator-header { padding: 15px; }
+    .calculator-title { font-size: 20px; }
+    .calculator-form { padding: 15px; }
+    .form-control { padding: 12px; }
+    .option-item { padding: 10px; font-size: 12px; }
+    .checkbox-item { padding: 8px; font-size: 13px; }
+    .result-price { font-size: 24px; }
+    .btn-large { padding: 14px 25px; font-size: 16px; }
+    .modal-content { border-radius: 15px; margin: 5px; }
+    .modal-header { padding: 15px; border-radius: 15px 15px 0 0; }
+    .modal-header h2 { font-size: 18px; }
+    .close { font-size: 24px; }
+    .modal-body { padding: 15px; }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { font-size: 13px; }
+    .form-group input, .form-group textarea { padding: 10px; font-size: 13px; }
+    .form-group textarea { min-height: 80px; }
+    .submit-btn { padding: 12px; font-size: 14px; }
+    .footer-content { padding: 20px 3%; }
+    .footer-main { padding: 20px 0; }
+    .footer-main p { font-size: 13px; }
+    .social-icon { width: 35px; height: 35px; font-size: 16px; }
+    .footer-bottom { padding: 15px 0; }
+    .footer-copyright p { font-size: 11px; }
+    .footer, .footer-content { min-height: 200px; }
+}
+/* Стили для превью услуг */
+.services-preview {
+    background-color: #f8f9fa;
+    padding: 80px 5%;
+}
+
+.services-preview .section-title {
+    margin-bottom: 50px;
+}
+
+.service-preview-item {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.service-preview-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.services-all-button {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.services-all-button .btn-secondary {
+    padding: 16px 40px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.services-all-button .btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 123, 255, 0.4);
+}
+
+/* Стили для страницы всех услуг */
+#all-services .service-page {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin: 50px 0;
+}
+
+.service-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    color: #007bff;
+    font-size: 32px;
+    transition: transform 0.3s;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1);
+}
+
+.service-card h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.service-card p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Адаптивность для новых стилей */
+@media (max-width: 768px) {
+    .services-preview {
+        padding: 60px 3%;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin: 30px 0;
+    }
+    
+    .service-card {
+        padding: 30px 20px;
+    }
+    
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .service-card h3 {
+        font-size: 20px;
+    }
+    
+    .services-all-button {
+        margin-top: 40px;
+    }
+    
+    .services-all-button .btn-secondary {
+        padding: 14px 30px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-card {
+        padding: 25px 15px;
+    }
+    
+    .service-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    .service-card h3 {
+        font-size: 18px;
+    }
+    
+    .service-card p {
+        font-size: 14px;
+    }
+}
+/* Стили для секции услуг */
+.services-preview {
+    background-color: #f8f9fa;
+    padding: 80px 5%;
+}
+
+.services-preview .section-title {
+    margin-bottom: 50px;
+}
+
+/* Стили для кнопки "Показать все услуги" */
+.services-all-button {
+    text-align: center;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.services-all-button .btn-secondary {
+    padding: 16px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    color: #007bff;
+    border: 1px solid rgba(0, 123, 255, 0.2);
+    cursor: pointer;
+}
+
+.services-all-button .btn-secondary:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+}
+
+/* Стили для карточек услуг */
+.service-preview-item {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.service-preview-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+/* Убедитесь, что страницы отображаются правильно */
+.page {
+    display: none;
+    padding: 0 5%;
+}
+
+.page.active {
+    display: block;
+}
+
+/* Стили для страницы всех услуг */
+#all-services .service-page {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+/* Карусель портфолио */
+.portfolio-carousel {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.portfolio-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 250px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.portfolio-image {
+    width: 100%;
+    height: 100%;
+}
+
+.portfolio-image .placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    padding: 20px;
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    transform: translateY(0);
+}
+
+.portfolio-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.portfolio-category {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+/* Навигация карусели */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 123, 255, 0.8);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+}
+
+.carousel-nav:hover {
+    background: rgba(0, 123, 255, 1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav.prev {
+    left: 10px;
+}
+
+.carousel-nav.next {
+    right: 10px;
+}
+
+/* Индикаторы */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: #007bff;
+    transform: scale(1.2);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .carousel-slide {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .portfolio-item {
+        height: 200px;
+    }
+    
+    .carousel-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .carousel-nav.prev {
+        left: 5px;
+    }
+    
+    .carousel-nav.next {
+        right: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-slide {
+        grid-template-columns: 1fr;
+    }
+    
+    .portfolio-item {
+        height: 250px;
+    }
+    
+    .portfolio-carousel {
+        padding: 0 10px;
+    }
+}           
+/* FLOATING SOCIAL WIDGET - в правом нижнем углу */
+.floating-social {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999; /* ТОТ ЖЕ, что и у .back-to-top */
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Повышаем z-index только у кнопок, когда они открыты */
+.floating-social.open {
+    z-index: 1001; /* Только когда открыто - становится поверх */
+}
+
+.floating-social .social-btn,
+.floating-social .main-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    color: white;
+    border: none;
+    opacity: 0;
+    transform: scale(0) translateY(20px);
+    background: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+/* Главная кнопка всегда видна */
+.floating-social .main-btn {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    position: relative;
+    z-index: 1002; /* Главная кнопка всегда поверх */
+}
+
+.floating-social .main-btn:hover {
+    transform: scale(1.1) translateY(0);
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.5);
+}
+
+/* Telegram */
+.floating-social .telegram {
+    background: linear-gradient(135deg, #0088cc, #005a8e);
+    transition-delay: 0.2s;
+    z-index: 1000;
+}
+
+/* VK */
+.floating-social .vk {
+    background: linear-gradient(135deg, #4c75a3, #32527b);
+    transition-delay: 0.1s;
+    z-index: 1000;
+}
+
+/* При открытии — показываем кнопки с анимацией ВВЕРХ */
+.floating-social.open .social-btn {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* Анимация закрытия */
+.floating-social:not(.open) .social-btn {
+    opacity: 0;
+    transform: scale(0) translateY(20px);
+}
+
+/* Ховер эффекты */
+.floating-social .social-btn:hover {
+    transform: scale(1.1) translateY(0);
+}
+
+.floating-social .telegram:hover {
+    box-shadow: 0 8px 25px rgba(0, 136, 204, 0.5);
+}
+
+.floating-social .vk:hover {
+    box-shadow: 0 8px 25px rgba(76, 117, 163, 0.5);
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .floating-social {
+        bottom: 16px;
+        right: 16px;
+    }
+    
+    .floating-social .social-btn,
+    .floating-social .main-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-social {
+        bottom: 12px;
+        right: 12px;
+    }
+    
+    .floating-social .social-btn,
+    .floating-social .main-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 16px;
+    }
+}
+/* Стили для страницы вакансий */
+.vacancies-list {
+    margin: 50px 0;
+}
+
+.vacancy-item {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid #f0f0f0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.vacancy-item.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.vacancy-item h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.vacancy-details p {
+    margin: 10px 0;
+    color: #666;
+    line-height: 1.6;
+}
+
+.vacancy-details strong {
+    color: #007bff;
+}
+
+.vacancy-form-section {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid #eee;
+}
+
+.vacancy-form-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.vacancy-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.vacancy-form .form-group {
+    margin-bottom: 25px;
+}
+
+.vacancy-form .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+    font-size: 16px;
+}
+
+.vacancy-form .form-group input,
+.vacancy-form .form-group select,
+.vacancy-form .form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    font-size: 16px;
+    transition: all 0.3s;
+    background-color: #f8f9fa;
+}
+
+.vacancy-form .form-group input:focus,
+.vacancy-form .form-group select:focus,
+.vacancy-form .form-group textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+}
+
+.vacancy-form .form-group input::placeholder,
+.vacancy-form .form-group textarea::placeholder {
+    color: #999;
+}
+
+.vacancy-form .form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.vacancy-form .form-group input[type="file"] {
+    padding: 10px;
+    background: white;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .vacancy-item {
+        padding: 20px;
+    }
+    
+    .vacancy-item h3 {
+        font-size: 20px;
+    }
+    
+    .vacancy-form {
+        padding: 0 15px;
+    }
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* расстояние между логотипом и текстом */
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    white-space: nowrap;
+}
+
+/* Контейнер карты */
+#map {
+    width: 100%;
+    height: 400px;
+    margin-top: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Убедись, что родительские контейнеры не сжимают карту */
+.contact-text {
+    width: 100%;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.contact-icon {
+    font-size: 24px;
+    color: #007bff;
+    min-width: 32px;
+    text-align: center;
+}
+/* Стили для ссылки */
+.service-card-link {
+    text-decoration: none; /* Убирает подчеркивание */
+    color: inherit; /* Наследует цвет текста родителя (обычно черный) */
+    display: block; /* Делает ссылку блочным элементом, чтобы она занимала всю ширину родителя */
+}
+
+/* Опционально: Стили при наведении */
+.service-card-link:hover .service-card {
+    /* Применяются к .service-card при наведении на .service-card-link */
+    transform: scale(1.02); /* Легкое увеличение */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавление тени */
+    /* Добавьте другие стили эффекта при наведении */
+}
+/* Основной контейнер страницы */
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 5%;
+    min-height: 100vh;
+    background-color: white;
+    position: relative;
+}
+
+/* Заголовок страницы */
+.page-title {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    position: relative;
+}
+
+/* Подчеркивание под заголовком */
+.underline {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    margin: 0 auto 40px;
+    border-radius: 2px;
+}
+
+/* Контентный блок */
+.content {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.content p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* Заголовок секции */
+.section-title {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin: 60px 0 40px;
+    color: #333;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    border-radius: 2px;
+}
+
+/* Прайс-таблица */
+.price-table {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 60px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid #eee;
+}
+
+/* Строка таблицы */
+.price-row {
+    display: flex;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s;
+}
+
+.price-row:last-child {
+    border-bottom: none;
+}
+
+/* Заголовок строки */
+.price-row.header {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Ячейки таблицы */
+.price-row > div {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.price-row.header > div {
+    font-size: 17px;
+}
+
+/* Четные строки */
+.price-row:nth-child(even):not(.header) {
+    background-color: #f8f9fa;
+}
+
+/* При наведении */
+.price-row:not(.header):hover {
+    background-color: #e3f2fd;
+}
+
+/* Кнопка "Назад" */
+.back-button-container {
+    text-align: center;
+    margin: 40px 0 60px;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 30px;
+    border: 2px solid #007bff;
+    border-radius: 30px;
+    background-color: transparent;
+    color: #007bff;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #007bff;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .page-container {
+        padding: 80px 3%;
+    }
+
+    .page-title {
+        font-size: 30px;
+    }
+
+    .underline {
+        margin-bottom: 30px;
+    }
+
+    .content p {
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: 24px;
+        margin: 50px 0 30px;
+    }
+
+    .price-table {
+        margin: 0 auto 40px;
+    }
+
+    .price-row {
+        flex-direction: column;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .price-row > div {
+        text-align: center;
+    }
+
+    .back-button {
+        padding: 14px 25px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-container {
+        padding: 60px 2%;
+    }
+
+    .page-title {
+        font-size: 26px;
+    }
+
+    .content p {
+        font-size: 15px;
+    }
+
+    .section-title {
+        font-size: 22px;
+    }
+
+    .price-row {
+        padding: 12px;
+        gap: 8px;
+    }
+
+    .price-row > div {
+        font-size: 14px;
+    }
+
+    .back-button {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}
+/* Стили для таблицы цен, специфичные для этой страницы */
+.service-content .price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 40px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.service-content .price-table th,
+.service-content .price-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.service-content .price-table th {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.service-content .price-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.service-content .price-table tr:hover {
+    background-color: #e3f2fd;
+}
+
+/* Убедитесь, что кнопка "Назад" использует центрирование */
+/* Стиль .back-btn уже определен в вашем основном CSS */
+/* .back-btn { text-align: center; ... } */
+/* Если нужно, можно добавить отступ сверху */
+.back-btn {
+    margin-top: 60px; /* Уже есть в основном CSS */
+    text-align: center; /* Уже есть в основном CSS */
+}
+
+/* --- Новые стили для выравнивания блоков --- */
+
+/* 1. Выравнивание блока "Помощь комплектации объекта" */
+/* Цель: сделать размеры и внешний вид идентичными блоку "Заборы и ограждения" */
+
+/* Оборачиваем содержимое блока "Помощь комплектации объекта" в div.service-card */
+/* и применяем стили, аналогичные другим .service-card в .services-grid */
+/* В HTML этот блок уже обернут в <a class="service-card-link">, внутри которого <div class="service-card"> */
+/* Но этот внутренний .service-card использует другие стили. Нужно переопределить их. */
+
+.service-page .services-grid .service-card-link .service-card {
+    /* Убираем стили, заданные для отдельной карточки "Помощь комплектации" */
+    width: auto; /* Заменяем фиксированную ширину */
+    box-shadow: none; /* Убираем индивидуальную тень */
+    border-radius: 0; /* Убираем индивидуальный border-radius */
+    background: none; /* Убираем индивидуальный фон */
+    height: auto; /* Позволяем высоте определяться содержимым или сеткой */
+    display: flex; /* Используем flex для внутренней структуры */
+    flex-direction: column; /* Содержимое сверху вниз */
+    /* Наследуем стили контейнера карточки из .services-grid */
+    /* position: relative; - уже есть у .service-card */
+    /* overflow: hidden; - уже есть у .service-card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Наследуем переходы */
+    border-radius: 12px; /* Применяем общий border-radius */
+    /* overflow: hidden; - уже есть у .service-card */
+    /* cursor: pointer; - не применимо к <a>, но можно добавить если нужно */
+}
+
+/* Применяем стили hover, аналогичные .service-card */
+.service-page .services-grid .service-card-link:hover .service-card {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Теперь применяем стили к внутренним элементам .service-card для "Помощь комплектации" */
+/* Классы card-header и card-body из оригинального HTML для этого блока */
+.service-page .services-grid .service-card-link .card-header {
+    /* Убираем индивидуальный background-color */
+    background-color: initial;
+    /* Применяем стили .service-image */
+    height: 180px; /* Фиксированная высота изображения */
+    background: linear-gradient(45deg, #9575cd, #673ab7); /* Цвет фона как у 7-й карточки */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0; /* Скругление только сверху */
+}
+
+.service-page .services-grid .service-card-link .card-header .icon-container {
+    /* Убираем индивидуальные стили */
+    width: initial;
+    height: initial;
+    background-color: initial;
+    border-radius: initial;
+    display: initial;
+    justify-content: initial;
+    align-items: initial;
+    box-shadow: initial;
+    /* Применяем стили .service-image-placeholder */
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    padding: 15px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 25px;
+    font-weight: 500;
+    /* Обертываем иконку и текст в div, как в других карточках */
+    /* Это требует изменений в HTML, но если HTML не меняется, стилизируем контейнер */
+    /* Внутри .icon-container есть .icon и текст */
+    /* Пока оставим как placeholder */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.service-page .services-grid .service-card-link .card-header .icon {
+    /* Убираем fill: white; и т.д., если не нужно */
+    /* Применяем стили иконки */
+    font-size: 48px; /* Как у других иконок */
+    color: white;
+    margin-bottom: 10px; /* Отступ между иконкой и текстом */
+    width: auto; /* Убираем фиксированную ширину/высоту SVG */
+    height: auto;
+}
+/* Стили для текста внутри .card-header (если он вне .icon-container) */
+/* В оригинальном HTML текст "Помощь комплектации объекта" внутри .icon-container */
+/* Предположим, он внутри .icon-container, но вне .icon */
+/* Или нужно обернуть его отдельно */
+/* Пока предположим, что он внутри .icon-container, как placeholder */
+/* Тогда стили уже применены через .icon-container */
+
+/* Контент карточки */
+.service-page .services-grid .service-card-link .card-body {
+    /* Убираем индивидуальные стили */
+    padding: initial;
+    /* Применяем стили .service-content */
+    padding: 20px;
+    background: white; /* Фон для контента */
+    border-radius: 0 0 12px 12px; /* Скругление только снизу */
+    flex-grow: 1; /* Занимает оставшееся место */
+}
+
+.service-page .services-grid .service-card-link .card-title {
+    /* Убираем индивидуальные стили */
+    font-size: initial;
+    font-weight: initial;
+    color: initial;
+    margin: initial;
+    /* Применяем стили .service-content h3 */
+    margin: 0 0 10px 0;
+    font-size: 20px; /* Стандартный размер заголовка */
+}
+
+.service-page .services-grid .service-card-link .card-title a {
+    /* Применяем стили .service-content h3 a */
+    color: #333;
+    text-decoration: none;
+}
+
+.service-page .services-grid .service-card-link .card-description {
+    /* Убираем индивидуальные стили */
+    font-size: initial;
+    color: initial;
+    line-height: initial;
+    /* Применяем стили .service-content p */
+    margin: 0 0 15px 0;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* 2. Выравнивание блока "Готовы начать проект?" */
+/* Цель: сделать ширину равной ширине карточек в .services-grid и высоту примерно равной карточке */
+
+/* Блок .cta-section уже находится внутри .content-section */
+/* Нужно выровнять его по ширине сетки карточек и стилизовать подобно карточке */
+
+/* Убираем inline-стили у .cta-section (width, height, margin-top, padding, background, border-radius) */
+/* и применяем стили, соответствующие .service-card */
+
+.service-page .cta-section {
+    /* Убираем inline-стили */
+    /* width: ...; - убрано */
+    /* height: ...; - убрано */
+    /* margin-top: 60px; - оставим, если нужно */
+    /* padding: 40px; - заменяем на стили карточки */
+    /* background: linear-gradient(...); - убираем */
+    /* border-radius: 20px; - заменяем на стили карточки */
+    /* display: flex; - для центрирования кнопок */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Наследуем стили контейнера карточки */
+    background: white; /* Белый фон */
+    border-radius: 12px; /* Стандартный border-radius */
+    padding: 40px 30px; /* Стандартный отступ */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Стандартная тень */
+    border: 1px solid #f0f0f0; /* Стандартная граница */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Стандартные переходы */
+    /* Высоту делаем фиксированной или пытаемся соответствовать сетке */
+    /* grid-row: span X; - не применимо без изменения разметки */
+    /* Пока просто зададим минимальную высоту, близкую к карточке */
+    min-height: calc(180px + 2 * 20px + 2 * 40px); /* Высота изображения + отступы контента + отступы секции */
+    /* Или можно просто оставить как есть и центрировать содержимое */
+    /* Оставляем как есть, но стилизуем как карточку */
+}
+
+/* Применяем hover-эффект, как у карточек */
+.service-page .cta-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* Стили для заголовка и описания */
+.service-page .cta-section h3 {
+    /* margin-bottom: 20px; - оставим */
+    /* color: #333; - оставим */
+    /* font-size: 28px; - возможно, уменьшить */
+    font-size: 24px; /* Ближе к заголовку карточки */
+    margin-bottom: 10px; /* Ближе к отступу карточки */
+    color: #333;
+}
+/* Стили для текста внутри .card-header (если он вне .icon-container) */
+/* В оригинальном HTML текст "Помощь комплектации объекта" внутри .icon-container */
+/* Предположим, он внутри .icon-container, но вне .icon */
+/* Или нужно обернуть его отдельно */
+/* Пока предположим, что он внутри .icon-container, как placeholder */
+/* Тогда стили уже применены через .icon-container */
+
+/* Контент карточки */
+.service-page .services-grid .service-card-link .card-body {
+    /* Убираем индивидуальные стили */
+    padding: initial;
+    /* Применяем стили .service-content */
+    padding: 20px;
+    background: white; /* Фон для контента */
+    border-radius: 0 0 12px 12px; /* Скругление только снизу */
+    flex-grow: 1; /* Занимает оставшееся место */
+}
+
+.service-page .services-grid .service-card-link .card-title {
+    /* Убираем индивидуальные стили */
+    font-size: initial;
+    font-weight: initial;
+    color: initial;
+    margin: initial;
+    /* Применяем стили .service-content h3 */
+    margin: 0 0 10px 0;
+    font-size: 20px; /* Стандартный размер заголовка */
+}
+
+.service-page .services-grid .service-card-link .card-title a {
+    /* Применяем стили .service-content h3 a */
+    color: #333;
+    text-decoration: none;
+}
+
+.service-page .services-grid .service-card-link .card-description {
+    /* Убираем индивидуальные стили */
+    font-size: initial;
+    color: initial;
+    line-height: initial;
+    /* Применяем стили .service-content p */
+    margin: 0 0 15px 0;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* 2. Выравнивание блока "Готовы начать проект?" */
+/* Цель: сделать ширину равной ширине карточек в .services-grid и высоту примерно равной карточке */
+
+/* Блок .cta-section уже находится внутри .content-section */
+/* Нужно выровнять его по ширине сетки карточек и стилизовать подобно карточке */
+
+/* Убираем inline-стили у .cta-section (width, height, margin-top, padding, background, border-radius) */
+/* и применяем стили, соответствующие .service-card */
+
+.service-page .cta-section {
+    /* Убираем inline-стили */
+    /* width: ...; - убрано */
+    /* height: ...; - убрано */
+    /* margin-top: 60px; - оставим, если нужно */
+    /* padding: 40px; - заменяем на стили карточки */
+    /* background: linear-gradient(...); - убираем */
+    /* border-radius: 20px; - заменяем на стили карточки */
+    /* display: flex; - для центрирования кнопок */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Наследуем стили контейнера карточки */
+    background: white; /* Белый фон */
+    border-radius: 12px; /* Стандартный border-radius */
+    padding: 40px 30px; /* Стандартный отступ */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Стандартная тень */
+    border: 1px solid #f0f0f0; /* Стандартная граница */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Стандартные переходы */
+    /* Высоту делаем фиксированной или пытаемся соответствовать сетке */
+    /* grid-row: span X; - не применимо без изменения разметки */
+    /* Пока просто зададим минимальную высоту, близкую к карточке */
+    min-height: calc(180px + 2 * 20px + 2 * 40px); /* Высота изображения + отступы контента + отступы секции */
+    /* Или можно просто оставить как есть и центрировать содержимое */
+    /* Оставляем как есть, но стилизуем как карточку */
+}
+
+/* Применяем hover-эффект, как у карточек */
+.service-page .cta-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* Стили для заголовка и описания */
+.service-page .cta-section h3 {
+    /* margin-bottom: 20px; - оставим */
+    /* color: #333; - оставим */
+    /* font-size: 28px; - возможно, уменьшить */
+    font-size: 24px; /* Ближе к заголовку карточки */
+    margin-bottom: 10px; /* Ближе к отступу карточки */
+    color: #333;
+}
+/* --- Дополнительные стили для выделенной карточки услуги --- */
+/* Выделенная карточка услуги */
+.service-preview-item-highlighted {
+    /* Дополнительная тень для выделения */
+    box-shadow: 0 12px 35px rgba(106, 27, 154, 0.25); /* Фиолетовая тень */
+    /* Альтернатива: можно использовать градиентную границу */
+    /* border: 2px solid transparent; */
+    /* background-image: linear-gradient(white, white), linear-gradient(135deg, #007bff, #6a1b9a); */
+    /* background-origin: border-box; */
+    /* background-clip: padding-box, border-box; */
+}
+
+/* Дополнительный hover-эффект для выделенной карточки */
+.service-preview-item-highlighted:hover {
+    transform: translateY(-12px); /* Чуть больше подъема */
+    box-shadow: 0 22px 50px rgba(106, 27, 154, 0.35); /* Более насыщенная тень при наведении */
+}
+
+/* Стили для внутреннего .service-card внутри выделенной карточки */
+.service-preview-item-highlighted .service-card {
+    /* Убедимся, что внутренний .service-card не перезаписывает стили фона и т.п. */
+    /* border-radius: 20px; - уже определен для .content-block */
+    /* padding: 20px; - уже определен для .content-block */
+    /* background-color: white; - уже определен для .content-block */
+    /* box-shadow: 0 10px 30px rgba(0,0,0,0.08); - уже определен для .content-block */
+    /* transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); - уже определен для .service-card */
+    /* position: relative; - уже определен для .service-card */
+    /* overflow: hidden; - уже определен для .service-card */
+    /* display: flex; - уже определен для .service-card */
+    /* flex-direction: column; - уже определен для .service-card */
+    /* cursor: pointer; - уже определен для .service-card */
+    /* transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); - уже определен для .service-card */
+    /* Стили для .card-header и .card-body внутри .service-card */
+    /* Эти стили остаются как есть, но можно немного изменить цвета фона, если нужно */
+    /* Например, сделать фон .card-header немного другим */
+}
+
+.service-preview-item-highlighted .card-header {
+    /* Цвет фона для выделенной карточки, например, фиолетовый градиент */
+    background: linear-gradient(135deg, #6a1b9a, #4527a0);
+}
+
+/* Стили для SVG иконки внутри выделенной карточки */
+.service-preview-item-highlighted .icon {
+    fill: currentColor; /* Использует цвет текста, который наследуется от .card-header */
+    /* Цвет можно изменить, если нужно, например: fill: #fff; */
+    width: 40px; /* Установим размер */
+    height: 40px;
+    /* margin: 0 auto; - центрируем */
+}
+
+/* Стили для контента карточки */
+/* .card-body, .card-title, .card-description - остаются как есть, чтобы соответствовать остальному стилю */
+/* Если нужно, можно слегка изменить цвет заголовка или шрифт */
+/* .service-preview-item-highlighted .card-title { */
+/*    color: #6a1b9a; */
+/* } */
+/* --- Конец дополнительных стилей --- */
+/* --- Дополнительные стили для выделения карточки "Помощь комплектации объекта" --- */
+/* Применяется к .content-block.service-preview-item */
+.service-preview-item-highlighted {
+    /* Применяем более насыщенную тень для выделения */
+    box-shadow: 0 12px 35px rgba(33, 150, 243, 0.25); /* Голубая тень */
+}
+
+/* Дополнительный hover-эффект для выделенной карточки */
+.service-preview-item-highlighted:hover {
+    transform: translateY(-12px); /* Чуть больше подъема при наведении */
+    box-shadow: 0 22px 50px rgba(33, 150, 243, 0.35); /* Более насыщенная тень при наведении */
+}
+
+/* Стили для SVG иконки внутри выделенной карточки (если не заданы инлайн) */
+/* service-image-placeholder использует color: white, так что fill: currentColor будет белым */
+.service-preview-item-highlighted .service-icon {
+    /* fill: currentColor; - уже задано в HTML как fill="currentColor", наследует цвет от родителя */
+    /* width/height - заданы инлайн в HTML */
+    /* display: block; - задано инлайн в HTML */
+    /* margin-bottom: 5px; - задано инлайн в HTML */
+}
+/* --- Конец дополнительных стилей --- */

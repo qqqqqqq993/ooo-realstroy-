@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Помощь комплектации объекта</title>
+    <!-- Убедитесь, что путь к style.css правильный -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css  ">
+    <style>
+        /* Дополнительные стили для структурирования текста */
+        .service-content {
+            max-width: 800px;
+            margin: 0 auto 60px; /* Добавлен нижний отступ */
+            text-align: center; /* Центрируем контент */
+        }
+
+        .service-content p {
+            font-size: 18px; /* Увеличиваем размер шрифта */
+            color: #666;
+            line-height: 1.8; /* Увеличиваем межстрочный интервал */
+            margin-bottom: 20px; /* Увеличиваем отступ между параграфами */
+        }
+
+        /* Стили для списка */
+        .service-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 40px 0; /* Отступ сверху и снизу списка */
+            text-align: left; /* Выравнивание по левому краю для списка */
+            max-width: 600px; /* Ограничиваем ширину списка */
+            margin-left: auto; /* Центрируем список */
+            margin-right: auto;
+        }
+
+        .service-content ul li {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb); /* Градиентный фон */
+            padding: 15px 20px; /* Внутренние отступы */
+            margin-bottom: 15px; /* Отступ между элементами */
+            border-radius: 10px; /* Скругление углов */
+            border-left: 4px solid #007bff; /* Левая граница */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Тень */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавный переход */
+        }
+
+        .service-content ul li:hover {
+            transform: translateX(5px); /* Сдвиг при наведении */
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1); /* Более заметная тень при наведении */
+        }
+
+        .service-content ul li i {
+            margin-right: 10px; /* Отступ справа от иконки */
+            color: #007bff; /* Цвет иконки */
+        }
+
+        /* Стили для заголовков внутри текста */
+        .service-content h2 {
+            font-size: 28px;
+            color: #333;
+            margin: 40px 0 20px 0; /* Отступы сверху и снизу */
+            text-align: center; /* Центрируем заголовок */
+        }
+
+        .service-content h3 {
+            font-size: 22px;
+            color: #333;
+            margin: 30px 0 15px 0; /* Отступы сверху и снизу */
+            text-align: center; /* Центрируем заголовок */
+        }
+
+        /* Центрируем кнопку */
+        .back-btn {
+            text-align: center;
+            margin-top: 40px; /* Увеличиваем отступ сверху */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Верхний баннер -->
+    <div class="top-banner" id="topBanner">
+        <div class="banner-text">🏗️ Бесплатная консультация и расчет стоимости строительства — звоните прямо сейчас!</div>
+        <div class="banner-phones">
+            <a href="tel:+73412676747">+7 (3412) 67-67-47</a>
+            <a href="tel:+79090674888">+7 909-067-48-88</a>
+        </div>
+    </div>
+
+    <!-- Главная шапка -->
+    <header class="main-header" id="mainHeader">
+        <div class="logo">
+    <img src="img/логотип.jpg" alt="Логотип РеалСтрой" class="logo-img">
+    <span class="logo-text">РеалСтрой</span>
+</div>
+        <nav class="nav-menu">
+            <a href="index.html">Главная</a>
+            <a href="vacancies.html">Вакансии</a>
+            <!-- Изменена ссылка для якоря -->
+            <a href="#order-process">Порядок работы</a>
+            <a href="#about-section">О нас</a> <!-- Изменено -->
+            <a href="contact.html">Контакты</a>
+        </nav>
+        <div class="header-actions">
+            <button class="btn-calc" onclick="openCalculator()">Калькулятор</button>
+            <button class="btn-call" onclick="openCallForm()">Звонок</button>
+        </div>
+    </header>
+    <!-- Основной контент страницы -->
+    <main class="service-page">
+        <h1 class="section-title">Помощь комплектации объекта</h1> <!-- Изменено: теперь h1 с классом section-title -->
+
+        <div class="service-content">
+            <p>
+                Создать по-настоящему гармоничное и функциональное пространство — значит подобрать не просто материалы, а идеальное сочетание эстетики, качества и практичности.
+            </p>
+            <p>
+                Мы готовы взять на себя заботу о комплектации вашего объекта «под ключ» — от первого чертежа до последнего элемента отделки.
+            </p>
+            <p>
+                Независимо от того, строите ли вы частный дом, обновляете офис или реализуете масштабный коммерческий проект, мы подберём для вас всё необходимое:
+            </p>
+
+            <ul>
+                <li><i class="fas fa-check-circle"></i> керамическую и керамогранитную плитку ведущих брендов,</li>
+                <li><i class="fas fa-check-circle"></i> современные светильники — от лаконичных встраиваемых моделей до эффектных дизайнерских решений,</li>
+                <li><i class="fas fa-check-circle"></i> сантехнику,</li>
+                <li><i class="fas fa-check-circle"></i> дверные ручки,</li>
+                <li><i class="fas fa-check-circle"></i> фурнитуру,</li>
+                <li><i class="fas fa-check-circle"></i> декоративные панели и многое другое.</li>
+            </ul>
+
+            <p>
+                Наша цель — не просто поставить товар, а создать завершённую, целостную картину интерьера, в которой каждая деталь работает на общий результат.
+            </p>
+            <p>
+                Мы сотрудничаем напрямую с проверенными поставщиками, что позволяет гарантировать высокое качество продукции, выгодные условия и оперативную доставку прямо на ваш объект.
+            </p>
+            <p>
+                <strong>Доверьтесь профессионалам</strong> — и превратите процесс комплектации из головной боли в удовольствие. Вместе мы сделаем ваш объект не просто красивым, а безупречным.
+            </p>
+        </div>
+
+        <!-- Кнопка назад (теперь центрирована) -->
+        <div class="back-btn">
+            <a href="index.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Назад к главной</a>
+        </div>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="footer-background">
+            <div class="footer-overlay"></div>
+        </div>
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-logo">РеалСтрой</div>
+                <p>Строительство, ремонт и дизайн — под ключ в Ижевске и Удмуртии</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-vk"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <!-- Добавленная информация в столбик -->
+            <div class="footer-info-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);">
+                <!-- Контакты -->
+                <div class="footer-column">
+                    <h4 style="color: white; margin: 0 0 15px 0; font-size: 18px;">Контакты</h4>
+                    <div style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                        <i class="fas fa-phone" style="color: white; margin-right: 10px; margin-top: 3px;"></i>
+                        <div>
+                            <p style="color: rgba(255,255,255,0.8); margin: 0 0 5px 0;">
+                                <a href="tel:+73412676747" style="color: rgba(255,255,255,0.8); text-decoration: none;">+7 (3412) 67-67-47</a>
+                            </p>
+                            <p style="color: rgba(255,255,255,0.8); margin: 0;">
+                                <a href="tel:+79090674888" style="color: rgba(255,255,255,0.8); text-decoration: none;">8-909-067-48-88</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                        <i class="fas fa-envelope" style="color: white; margin-right: 10px; margin-top: 3px;"></i>
+                        <div>
+                            <p style="color: rgba(255,255,255,0.8); margin: 0 0 5px 0;">
+                                <a href="mailto:info@realstroy.ru" style="color: rgba(255,255,255,0.8); text-decoration: none;">info@realstroy.ru</a>
+                            </p>
+                            <p style="color: rgba(255,255,255,0.8); margin: 0;">
+                                <a href="mailto:ooo.realstroy@mail.ru" style="color: rgba(255,255,255,0.8); text-decoration: none;">ooo.realstroy@mail.ru</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: flex-start;">
+                        <i class="fas fa-map-marker-alt" style="color: white; margin-right: 10px; margin-top: 3px;"></i>
+                        <p style="color: rgba(255,255,255,0.8); margin: 0;">Ижевск, Удмуртия</p>
+                    </div>
+                </div>
+
+                <!-- Режим работы -->
+                <div class="footer-column">
+                    <h4 style="color: white; margin: 0 0 15px 0; font-size: 18px;">Режим работы</h4>
+                    <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Пн-Пт: 9:00 - 18:00</p>
+                    <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Сб: 10:00 - 16:00</p>
+                    <p style="color: rgba(255,255,255,0.8); margin: 0;">Вс: выходной</p>
+                </div>
+
+                <!-- Услуги -->
+                <div class="footer-column">
+                    <h4 style="color: white; margin: 0 0 15px 0; font-size: 18px;">Услуги</h4>
+                    <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Ремонт квартир</p>
+                    <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Ремонт офисов</p>
+                    <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Помощь комплектации</p> <!-- Изменено -->
+                    <p style="color: rgba(255,255,255,0.8); margin: 0;"><a href="all-services.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Все услуги →</a></p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-divider"></div>
+                <div class="footer-copyright">
+                    <p>&copy; ООО «РеалСтрой», 2010-2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+     <script src="index.js"></script>
+</body>
+</html>

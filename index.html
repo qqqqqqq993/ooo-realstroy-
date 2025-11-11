@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>РеалСтрой — Строительная компания в Ижевске</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css      ">
+</head>
+<body>
+    <!-- Верхний баннер -->
+    <div class="top-banner" id="topBanner">
+        <div class="banner-text">🏗️ Бесплатная консультация и расчет стоимости строительства — звоните прямо сейчас!</div>
+        <div class="banner-phones">
+            <a href="tel:+73412676747">+7 (3412) 67-67-47</a>
+            <a href="tel:+79090674888">+7 909-067-48-88</a>
+        </div>
+    </div>
+
+    <!-- Главная шапка -->
+    <header class="main-header" id="mainHeader">
+        <div class="logo">
+    <img src="img/логотип.jpg" alt="Логотип РеалСтрой" class="logo-img">
+    <span class="logo-text">РеалСтрой</span>
+</div>
+        <nav class="nav-menu">
+            <a href="index.html">Главная</a>
+            <a href="vacancies.html">Вакансии</a>
+            <!-- Изменена ссылка для якоря -->
+            <a href="#order-process">Порядок работы</a>
+            <a href="#about-section">О нас</a> <!-- Изменено -->
+            <a href="contact.html">Контакты</a>
+        </nav>
+        <div class="header-actions">
+            <button class="btn-calc" onclick="openCalculator()">Калькулятор</button>
+            <button class="btn-call" onclick="openCallForm()">Звонок</button>
+        </div>
+    </header>
+
+    <!-- Главный контент -->
+    <main>
+       <!-- Hero секция -->
+<section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1 class="hero-title">Качественный<span class="text-blue-300"> ремонт квартир</span></h1>
+        <p class="hero-subtitle">Профессиональное строительство, ремонт и отделка в Ижевске и Удмуртии — с гарантией качества и прозрачной стоимостью</p>
+        <div class="hero-buttons">
+            <button class="btn btn-primary" onclick="openCallForm()"><i class="fas fa-phone-alt"></i> Заказать звонок</button>
+            <button class="btn btn-secondary" onclick="openCalculator()"><i class="fas fa-calculator"></i> Рассчитать стоимость</button>
+        </div>
+         <!--Удалена стрелочка прокрутки -->
+    </div>
+</section>
+
+        <!-- 6 причин выбрать нас -->
+        <section class="content-section">
+            <h2 class="section-title">6 причин выбрать нас</h2>
+            <div class="blocks-container">
+                <div class="content-block">
+                    <div class="block-icon"><i class="fas fa-gift"></i></div>
+                    <h3 class="block-title">Постоянные акции, ценные подарки</h3>
+                    <p class="block-text">Мы дарим бонусы за каждый заказ — от бесплатного выезда до скидок на следующие работы.</p>
+                </div>
+                <div class="content-block">
+                    <div class="block-icon"><i class="fas fa-clock"></i></div>
+                    <h3 class="block-title">100% гарантия выполнения работ в срок</h3>
+                    <p class="block-text">Нарушаем сроки? Мы платим вам штраф. Мы ценим ваше время больше, чем деньги.</p>
+                </div>
+                <div class="content-block">
+                    <div class="block-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="block-title">Соблюдение требований ГОСТ и СНиП</h3>
+                    <p class="block-text">Все работы выполняем строго по нормам — безопасно, надежно, без скрытых дефектов.</p>
+                </div>
+                <div class="content-block">
+                    <div class="block-icon"><i class="fas fa-user-tie"></i></div>
+                    <h3 class="block-title">Стаж мастеров свыше 10 лет</h3>
+                    <p class="block-text">Наши мастера работают с инструментом в руках больше 10 лет — опыт не купить.</p>
+                </div>
+                <div class="content-block">
+                    <div class="block-icon"><i class="fas fa-file-contract"></i></div>
+                    <h3 class="block-title">Заключение официального договора</h3>
+                    <p class="block-text">Договор, смета, акты — всё оформляем правильно. Без обмана, без скрытых платежей.</p>
+                </div>
+                <div class="content-block">
+                    <div class="block-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                    <h3 class="block-title">Бесплатная оценка сроков, сметы и работ</h3>
+                    <p class="block-text">Приезжаем бесплатно — замеряем, анализируем, даём точную смету — без обязательств.</p>
+                </div>
+            </div>
+        </section>
+
+                      <!-- Услуги в основном контенте -->
+<section class="content-section services-preview">
+    <h2 class="section-title">Наши основные услуги</h2>
+    <div class="blocks-container">
+        <div class="content-block service-preview-item">
+            <button class="service-button" onclick="window.location.href='repair-apartments.html'" style="border: none; background: none; padding: 0; width: 100%; text-align: left; cursor: pointer;">
+                <div class="service-image" style="height: 150px; background: linear-gradient(45deg, #64b5f6, #2196f3); display: flex; align-items: center; justify-content: center; border-radius: 8px 8px 0 0; margin: -20px -20px 20px -20px;">
+                    <div class="service-image-placeholder" style="color: white; font-size: 14px; text-align: center; padding: 10px; background: rgba(0,0,0,0.2); border-radius: 20px;">
+                        <i class="service-icon fas fa-home" style="font-size: 36px; margin-bottom: 5px;"></i>
+                        <div>Ремонт квартир</div>
+                    </div>
+                </div>
+                <h3 class="block-title" style="margin-top: 0;">Ремонт квартир</h3>
+                <p class="block-text">Качественный ремонт квартир под ключ с гарантией 18 месяцев. Используем только проверенные материалы и современные технологии.</p>
+            </button>
+        </div>
+        
+        <!-- Измененная карточка посередине (теперь полностью как другие, но с выделением) -->
+        <div class="content-block service-preview-item service-preview-item-highlighted">
+            <button class="service-button" onclick="window.location.href='pomosh.html'" style="border: none; background: none; padding: 0; width: 100%; text-align: left; cursor: pointer;">
+                <div class="service-image" style="height: 150px; background: linear-gradient(45deg, #2196f3, #0d47a1); display: flex; align-items: center; justify-content: center; border-radius: 8px 8px 0 0; margin: -20px -20px 20px -20px;"> <!-- Голубой градиент -->
+                    <div class="service-image-placeholder" style="color: white; font-size: 14px; text-align: center; padding: 10px; background: rgba(0,0,0,0.2); border-radius: 20px;">
+                        <svg class="service-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 36px; height: 36px; margin-bottom: 5px; display: block;"> <!-- SVG иконка -->
+                            <path d="M12 3L2 12h3v8h6v-6h4v6h6v-8h3L12 3zm-2 16v-6h4v6H10z" fill="currentColor"/>
+                        </svg>
+                        <div>Помощь комплектации</div> <!-- Текст внутри placeholder -->
+                    </div>
+                </div>
+                <h3 class="block-title" style="margin-top: 0;">Помощь комплектации объекта</h3>
+                <p class="block-text">Плитка, двери, сантехника, электрика, свет, напольные и декоративные покрытия — подбираем всё по оптовым ценам под ваш проект.</p>
+            </button>
+        </div>
+        
+        <!-- Третья карточка (осталась без изменений) -->
+        <div class="content-block service-preview-item">
+            <button class="service-button" onclick="window.location.href='commercial-repair.html'" style="border: none; background: none; padding: 0; width: 100%; text-align: left; cursor: pointer;">
+                <div class="service-image" style="height: 150px; background: linear-gradient(45deg, #81c784, #4caf50); display: flex; align-items: center; justify-content: center; border-radius: 8px 8px 0 0; margin: -20px -20px 20px -20px;">
+                    <div class="service-image-placeholder" style="color: white; font-size: 14px; text-align: center; padding: 10px; background: rgba(0,0,0,0.2); border-radius: 20px;">
+                        <i class="service-icon fas fa-building" style="font-size: 36px; margin-bottom: 5px;"></i>
+                        <div>Ремонт офисов</div>
+                    </div>
+                </div>
+                <h3 class="block-title" style="margin-top: 0;">Ремонт торгово-офисных помещений</h3>
+                <p class="block-text">Профессиональный ремонт офисов и коммерческих помещений без простоя бизнеса. Соблюдаем сроки и ГОСТ.</p>
+            </button>
+        </div>
+    </div>
+    <!-- Кнопка в секции услуг -->
+    <div class="services-all-button">
+        <a href="all-services.html" class="btn btn-secondary">
+            <i class="fas fa-list"></i> Показать все услуги
+        </a>
+    </div>
+</section>
+
+        <!-- Портфолио -->
+<section class="portfolio-section" id="portfolio">
+    <h2 class="section-title">Наши работы</h2>
+    
+    <!-- Карусель -->
+    <div class="portfolio-carousel">
+        <div class="carousel-container">
+            <div class="carousel-wrapper">
+                <!-- Слайд 1 -->
+                <div class="carousel-slide">
+                    <div class="portfolio-item" data-project="project1">
+                        <a href="gallery-project1.html">
+                            <div class="portfolio-image">
+                                <img src="img/remontKvart_glav.jpg" alt="Ремонт квартир">
+                            </div>
+                            <div class="portfolio-overlay">
+                                <h3 class="portfolio-title">Ремонт квартир</h3>
+                                <p class="portfolio-category">Ижевск, Удмуртия</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="portfolio-item" data-project="project2">
+                        <a href="gallery-project2.html">
+                            <div class="portfolio-image">
+                                 <img src="img/evroremont_glav.webp" alt="Ремонт квартир">
+                                <div class="placeholder">Проект 2 - Фото 2</div>
+                            </div>
+                            <div class="portfolio-overlay">
+                                <h3 class="portfolio-title">Евроремонт</h3>
+                                <p class="portfolio-category">Современный дизайн</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="portfolio-item" data-project="project3">
+                        <a href="gallery-project3.html">
+                            <div class="portfolio-image">
+                                 <img src="img/remotOfic_glav.webp" alt="Ремонт квартир">
+                                <div class="placeholder">Проект 3 - Фото 3</div>
+                            </div>
+                            <div class="portfolio-overlay">
+                                <h3 class="portfolio-title">Ремонт офисов</h3>
+                                <p class="portfolio-category">Без простоя бизнеса</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Слайд 2 -->
+                <div class="carousel-slide">
+                    <div class="portfolio-item" data-project="project4">
+                        <a href="gallery-project4.html">
+                            <div class="portfolio-image">
+                                 <img src="img/vent_glav.webp" alt="Ремонт квартир">
+                                <div class="placeholder">Проект 4 - Фото 4</div>
+                            </div>
+                            <div class="portfolio-overlay">
+                                <h3 class="portfolio-title">Вентиляция</h3>
+                                <p class="portfolio-category">Производство воздуховодов</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="portfolio-item" data-project="project5">
+                        <a href="gallery-project5.html">
+                            <div class="portfolio-image">
+                                 <img src="img/дизайн_главная.webp" alt="Ремонт квартир">
+                                <div class="placeholder">Проект 5 - Фото 5</div>
+                            </div>
+                            <div class="portfolio-overlay">
+                                <h3 class="portfolio-title">Дизайн интерьеров</h3>
+                                <p class="portfolio-category">От эскиза до реализации</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="portfolio-item" data-project="project6">
+                        <a href="gallery-project6.html">
+                            <div class="portfolio-image">
+                                 <img src="img/мебель_главная.webp" alt="Ремонт квартир">
+                                <div class="placeholder">Проект 6 - Фото 6</div>
+                            </div>
+                            <div class="portfolio-overlay">
+                                <h3 class="portfolio-title">Мебель на заказ</h3>
+                                <p class="portfolio-category">Кухни, шкафы, полки</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Слайд 3 (теперь 4 проекта) -->
+                <div class="carousel-slide">
+                    <div class="portfolio-item" data-project="project7">
+                        <a href="gallery-project7.html">
+                            <div class="portfolio-image">
+                                 <img src="img/окнаДвери_главная.webp" alt="Ремонт квартир">
+                                <div class="placeholder">Проект 7 - Фото 7</div>
+                            </div>
+                            <div class="portfolio-overlay">
+                                <h3 class="portfolio-title">Окна и двери</h3>
+                                <p class="portfolio-category">Пластик, дерево, алюминий</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="portfolio-item" data-project="project8">
+                        <a href="gallery-project8.html">
+                            <div class="portfolio-image">
+                                <img src="img/заборыОграждения.webp" alt="Ремонт квартир">
+                                <div class="placeholder">Проект 8 - Фото 8</div>
+                            </div>
+                            <div class="portfolio-overlay">
+                                <h3 class="portfolio-title">Заборы и ограждения</h3>
+                                <p class="portfolio-category">Бетон, кирпич, металл</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="portfolio-item" data-project="project9">
+                        <a href="gallery-project9.html">
+                            <div class="portfolio-image">
+                                <img src="img/барбекю.webp" alt="Ремонт квартир">
+                                <div class="placeholder">Проект 9 - Фото 9</div>
+                            </div>
+                            <div class="portfolio-overlay">
+                                <h3 class="portfolio-title">Барбекю</h3>
+                                <p class="portfolio-category">Каменные конструкции</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="portfolio-item" data-project="project10">
+                        <a href="gallery-project10.html">
+                            <div class="portfolio-image">
+                                <img src="img/screen.webp" alt="Ремонт квартир">
+                                <div class="placeholder">Проект 10 - Фото 10</div>
+                            </div>
+                            <div class="portfolio-overlay">
+                                <h3 class="portfolio-title">3D-моделирование</h3>
+                                <p class="portfolio-category">Визуализация интерьера</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Навигация карусели -->
+            <button class="carousel-nav prev" onclick="changeSlide(-1)">❮</button>
+            <button class="carousel-nav next" onclick="changeSlide(1)">❯</button>
+            
+            <!-- Индикаторы -->
+            <div class="carousel-indicators">
+                <span class="indicator active" onclick="currentSlide(1)"></span>
+                <span class="indicator" onclick="currentSlide(2)"></span>
+                <span class="indicator" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+    </div>
+</section>
+            <!-- Навигация карусели 
+            <button class="carousel-nav prev" onclick="changeSlide(-1)">❮</button>
+            <button class="carousel-nav next" onclick="changeSlide(1)">❯</button>
+            
+            Индикаторы 
+<div class="carousel-indicators">
+    <span class="indicator active" onclick="currentSlide(1)"></span>
+    <span class="indicator" onclick="currentSlide(2)"></span>
+    <span class="indicator" onclick="currentSlide(3)"></span>
+    <span class="indicator" onclick="currentSlide(4)"></span>
+    <span class="indicator" onclick="currentSlide(5)"></span>
+    <span class="indicator" onclick="currentSlide(6)"></span>
+</div>-->
+</section>
+
+<!-- Порядок работы - вынесено на правильное место и добавлен якорь -->
+<section class="order-process-section" id="order-process">
+    <div class="container">
+        <h2 class="section-title">Порядок работы</h2>
+        
+        <div class="process-content">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3 id="section-titles">С чего начать</h3>
+                    <p>Вы по телефону <strong>(3412) 67-67-47</strong>, <strong>8-909-067-48-88</strong>, или по электронной почте <strong>ooo.realstroy@mail.ru</strong> связываетесь с нашей Компанией и информируете о планируемых объемах и видах работ, площади и состоянии помещения. Сотрудник Компании договорится с Вами о времени обследования объекта.</p>
+                    <p>После выезда специалистов на объект, Вы получите предварительную информацию о предполагаемом объеме и стоимости работ.</p>
+                    <p>Если в ходе согласования технических и финансовых условий договоренность достигнута, начинается процесс сметных работ, а затем и подписания договора. Все работы по предварительной заявке производятся нашей Компанией БЕСПЛАТНО.</p>
+                    <div class="important-note">
+                        <p><strong>ЗАЯВКА НЕ ОБЯЗЫВАЕТ НИ ЗАКАЗЧИКА, НИ ИСПОЛНИТЕЛЯ К ПОДПИСАНИЮ ДОГОВОРА.</strong></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Порядок дальнейшего взаимодействия</h3>
+                    <p>Специалисты компании «РеалСтрой» составят техническую документацию на производство работ, смету на работы, спецификацию на материалы, календарный график производства работ и договор подряда. Заказчик авансирует средства на закупку требующихся материалов для проведения первых этапов работ. Начинается производство работ последовательно по всем технологическим этапам.</p>
+                    
+                    <h4>Например, технологические этапы и виды ремонтных работ:</h4>
+                    <ol class="tech-steps">
+                        <li>Демонтаж / монтаж перегородок</li>
+                        <li>Электромонтажные работы</li>
+                        <li>Выравнивание</li>
+                        <li>Разводка сантехники и канализации</li>
+                        <li>Гипсокартонные конструкции</li>
+                        <li>Плиточные работы</li>
+                        <li>Малярные работы</li>
+                        <li>Финишные работы</li>
+                    </ol>
+                    
+                    <p>После выполнения работ по одному из технологических этапов и приемки его Заказчиком, производится расчет за выполненные работы. По желанию Заказчика в согласованный проект вносятся все необходимые изменения и дополнения. Последним этапом можно считать подписание акта приема-сдачи работ и окончательный расчет в соответствии с условиями договора.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Контент страницы -->
+<main class="about-section" id="about-section"> <!-- Изменено: добавлен id -->
+    <h2 class="section-title">Почему выбирают нас?</h2>
+    <div class="about-content">
+        <div class="about-text">
+            <p>Строим и ремонтируем качественно, используя только проверенные материалы. Создаём уютные дома и офисы, которые становятся вашим вторым домом.</p>
+            <p>Наш подход — это сочетание профессионализма и заботы о клиенте. Мы знаем, как важно создать пространство, где будет комфортно жить и работать.</p>
+            <p>Каждый проект для нас особенный, ведь мы строим не просто здания — мы создаём пространство, где будут происходить важные моменты вашей жизни.</p>
+            <p>Доверьте строительство профессионалам — свяжитесь с нами!</p>
+            <p>Мы понимаем, что ваш дом — это не просто стены и крыша, а место, где будут жить ваши дети, гостить друзья и вы будете отдыхать после тяжелого дня. Поэтому мы уделяем внимание каждой детали, чтобы ваш дом был не только красивым, но и комфортным, безопасным и долговечным.</p>
+        </div>
+        <div class="about-image">
+            <div class="placeholder">Фото: Наша бригада на объекте</div>
+        </div>
+    </div>
+    
+    <div class="stats-container">
+        <div class="stat-item">
+            <div class="stat-number">n+</div>
+            <div class="stat-label">Построенных домов</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">n+</div>
+            <div class="stat-label">Лет опыта</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">n%</div>
+            <div class="stat-label">Удовлетворенность</div>
+        </div>
+    </div>
+</main>
+
+    <!-- Футер -->
+   <footer class="footer">
+    <div class="footer-background">
+        <div class="footer-overlay"></div>
+    </div>
+    <div class="footer-content">
+        <div class="footer-main">
+            <div class="footer-logo">РеалСтрой</div>
+            <p>Строительство, ремонт и дизайн — под ключ в Ижевске и Удмуртии</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-vk"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        
+        <!-- Добавленная информация в столбик -->
+        <div class="footer-info-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);">
+            <!-- Контакты -->
+            <div class="footer-column">
+                <h4 style="color: white; margin: 0 0 15px 0; font-size: 18px;">Контакты</h4>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="fas fa-phone" style="color: white; margin-right: 10px; margin-top: 3px;"></i>
+                    <div>
+                        <p style="color: rgba(255,255,255,0.8); margin: 0 0 5px 0;">
+                            <a href="tel:+73412676747" style="color: rgba(255,255,255,0.8); text-decoration: none;">+7 (3412) 67-67-47</a>
+                        </p>
+                        <p style="color: rgba(255,255,255,0.8); margin: 0;">
+                            <a href="tel:+79090674888" style="color: rgba(255,255,255,0.8); text-decoration: none;">8-909-067-48-88</a>
+                        </p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 10px;">
+                    <i class="fas fa-envelope" style="color: white; margin-right: 10px; margin-top: 3px;"></i>
+                    <div>
+                        <p style="color: rgba(255,255,255,0.8); margin: 0 0 5px 0;">
+                            <a href="mailto:info@realstroy.ru" style="color: rgba(255,255,255,0.8); text-decoration: none;">info@realstroy.ru</a>
+                        </p>
+                        <p style="color: rgba(255,255,255,0.8); margin: 0;">
+                            <a href="mailto:ooo.realstroy@mail.ru" style="color: rgba(255,255,255,0.8); text-decoration: none;">ooo.realstroy@mail.ru</a>
+                        </p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: flex-start;">
+                    <i class="fas fa-map-marker-alt" style="color: white; margin-right: 10px; margin-top: 3px;"></i>
+                    <p style="color: rgba(255,255,255,0.8); margin: 0;">Ижевск, Удмуртия</p>
+                </div>
+            </div>
+            
+            <!-- Режим работы -->
+            <div class="footer-column">
+                <h4 style="color: white; margin: 0 0 15px 0; font-size: 18px;">Режим работы</h4>
+                <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Пн-Пт: 9:00 - 18:00</p>
+                <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Сб: 10:00 - 16:00</p>
+                <p style="color: rgba(255,255,255,0.8); margin: 0;">Вс: выходной</p>
+            </div>
+            
+            <!-- Услуги -->
+            <div class="footer-column">
+                <h4 style="color: white; margin: 0 0 15px 0; font-size: 18px;">Услуги</h4>
+                <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Ремонт квартир</p>
+                <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Ремонт офисов</p>
+                <p style="color: rgba(255,255,255,0.8); margin: 0 0 10px 0;">Помощь комплектации</p> <!-- Изменено -->
+                <p style="color: rgba(255,255,255,0.8); margin: 0;"><a href="all-services.html" style="color: rgba(255,255,255,0.8); text-decoration: none;">Все услуги →</a></p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-divider"></div>
+            <div class="footer-copyright">
+                <p>&copy; ООО «РеалСтрой», 2010-2025</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Модальное окно формы звонка -->
+    <div class="modal" id="callModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Заказать звонок</h2>
+                <span class="close" onclick="closeCallForm()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="callForm" action="https://formspree.io/f/mkgqypjd  " method="POST"> <!-- Изменено -->
+                    <div class="form-group">
+                        <label for="callName">Имя *</label>
+                        <input type="text" id="callName" name="name" required placeholder="Введите ваше имя">
+                    </div>
+                    <div class="form-group">
+                        <label for="callPhone">Телефон *</label>
+                        <input type="tel" id="callPhone" name="phone" required placeholder="Введите ваш телефон">
+                    </div>
+                    <div class="form-group">
+                        <label for="callMessage">Дополнительное сообщение</label>
+                        <textarea id="callMessage" name="message" rows="4" placeholder="Расскажите подробнее о ваших пожеланиях..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Калькулятор -->
+    <div class="calculator-modal" id="calculatorModal">
+        <div class="calculator-content">
+            <div class="calculator-header">
+                <h2 class="calculator-title">Калькулятор стоимости строительства</h2>
+                <button class="close-calculator" onclick="closeCalculator()">&times;</button>
+            </div>
+            <div class="calculator-form">
+                <div class="form-group">
+                    <label class="form-label">Выберите услугу</label>
+                    <select id="serviceType" class="form-control" onchange="updateService()">
+                        <option value="">— Выберите услугу —</option>
+                        <option value="repair-apartment">Косметический ремонт</option>
+                        <option value="euro-repair">улучшенный ремонт</option>
+                        <option value="office-repair">Высококачественный ремонт</option>
+                    </select>
+                </div>
+
+                <div id="areaSection" class="form-group" style="display:none;">
+                    <label class="form-label">Площадь / Длина / Кол-во (м²/м/шт)</label>
+                    <input type="number" id="area" class="form-control" placeholder="Введите площадь или длину">
+                </div>
+
+                <div id="materialSection" class="form-group" style="display:none;">
+                    <label class="form-label">Выберите материал</label>
+                    <div class="options-grid" id="materialOptions"></div>
+                </div>
+
+                <div id="additionalServices" class="form-group" style="display:none;">
+                    <label class="form-label">Дополнительные услуги</label>
+                    <div class="checkbox-group" id="serviceList"></div>
+                </div>
+
+                <div class="result-box">
+                    <p>Итоговая стоимость:</p>
+                    <div class="result-price" id="resultPrice">0 ₽</div>
+                    <p class="result-note">Цена рассчитана на основе выбранных параметров. Окончательная стоимость будет уточнена после выезда специалиста.</p>
+                </div>
+
+                <div class="calculator-buttons">
+                    <button class="btn-large btn-outline" onclick="closeCalculator()">Закрыть</button>
+                    <a href="contact.html" class="btn-large btn-blue">Заказать звонок</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
